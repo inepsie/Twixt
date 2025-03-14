@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "Board.h"
 #include "Constants.h"
 #include "Cube.h"
 #include "Noise.h"
@@ -20,9 +21,9 @@
 namespace C = Constants; //  Pour ne pas à avoir à écrire Constants:: à chaque fois
 
 static inline void init() {
-  GameEngine &engine = GameEngine::getInstance();
   ShaderManager &shader_manager = ShaderManager::getInstance();
-
+  Board &board = Board::getInstance();
+  board.init(24);
   // Compute Shader - Map Compute
   shader_manager.loadShader("mapCompute", "../res/shaders/map.comp");
   // Map Draw Shader
@@ -32,59 +33,12 @@ static inline void init() {
   // Cube Repère Shader
   shader_manager.loadShader("cubeRepere", "../res/shaders/cube_repere.vert",
                             "../res/shaders/cube_repere.frag");
-
   glEnable(GL_DEPTH_TEST);
-}
-static inline void draw_map(Camera cam) {
-  glm::vec4 light_pos = glm::vec4(300.0, 500.0, 200.0, 1.0);
-  ShaderManager &shader_manager = ShaderManager::getInstance();
-  std::shared_ptr<Shader> shader = shader_manager.getShader("mapDraw");
-  shader->use();
-  //DRAW
-  Texture grass("../res/textures/grass.jpg");
-  Texture water("../res/textures/water.jpg");
-  grass.bind(0);
-  water.bind(1);
-  shader->set_uniform("grass_tex", 0);
-  shader->set_uniform("water_tex", 1);
-
-
-  glm::mat4 mvp = cam.get_proj() * cam.get_view();
-  glBindVertexArray(_vao); // Associer VAO
-  shader->set_uniform("map_width", C::CHUNK_WIDTH);
-  shader->set_uniform("map_height", C::CHUNK_HEIGHT);
-  shader->set_uniform("map_depth", C::CHUNK_DEPTH);
-  shader->set_uniform("Lp", light_pos);
-  shader->set_uniform("MVP", mvp);
-  shader->set_uniform("view", cam.get_view());
-
-  glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 0, _buffer[0]);
-  glDrawArrays(GL_POINTS, 0, C::BLOCKS_PER_CHUNK); // 1 vertex par bloc
-
-  shader->stop();
-  glBindVertexArray(0);
-  glUseProgram(0);
-}
-
-static inline void draw_cube_repere(Camera cam) {
-  GameEngine &engine = GameEngine::getInstance();
-  ShaderManager &shader_manager = ShaderManager::getInstance();
-  std::shared_ptr<Shader> shader = shader_manager.getShader("cubeRepere");
-  Cube c = Cube(shader);
-  c.setPosition(glm::vec3(0, 0, 0));
-  c.draw(cam.get_proj(), cam.get_view());
-  draw_map(cam);
-  glBindVertexArray(0);
-  shader->stop();
 }
 
 static inline void draw(Camera cam){
-  glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-  glEnable(GL_BLEND);
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  glClearColor(0.0f, 0.1f, 0.2f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  draw_cube_repere(cam);
-  draw_map(cam);
 }
 
 static inline void camera_settings(Camera &cam, float current_time) {
@@ -123,15 +77,14 @@ int main() {
 
   // OpenGL API
   glViewport(0, 0, C::WINDOW_WIDTH, C::WINDOW_HEIGHT);
-
   init();
-  Camera cam = Camera(glm::vec3(50, 20, 30), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+  Camera cam = Camera(glm::vec3(0, 0, -10), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
   auto lastTime = std::chrono::high_resolution_clock::now();
   while (glfwGetKey(window, GLFW_KEY_L) != GLFW_PRESS &&
          glfwWindowShouldClose(window) == 0) {
     auto currentTime = std::chrono::high_resolution_clock::now();
     float dt = std::chrono::duration<float>(currentTime - lastTime).count();
-    camera_settings(cam, dt);
+    //camera_settings(cam, dt);
     draw(cam);
     glfwSwapBuffers(window);
     glfwPollEvents();
