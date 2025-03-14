@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819
+CMAKE_SOURCE_DIR = /home/e20230004281/Documents/2m1/explo/Twixt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build
+CMAKE_BINARY_DIR = /home/e20230004281/Documents/2m1/explo/Twixt/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mc.dir/depend.make
@@ -72,189 +72,125 @@ include CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/Camera.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/Camera.cpp.o: ../src/Camera.cpp
 CMakeFiles/mc.dir/src/Camera.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mc.dir/src/Camera.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Camera.cpp.o -MF CMakeFiles/mc.dir/src/Camera.cpp.o.d -o CMakeFiles/mc.dir/src/Camera.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mc.dir/src/Camera.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Camera.cpp.o -MF CMakeFiles/mc.dir/src/Camera.cpp.o.d -o CMakeFiles/mc.dir/src/Camera.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/Camera.cpp
 
 CMakeFiles/mc.dir/src/Camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/Camera.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Camera.cpp > CMakeFiles/mc.dir/src/Camera.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/explo/Twixt/src/Camera.cpp > CMakeFiles/mc.dir/src/Camera.cpp.i
 
 CMakeFiles/mc.dir/src/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/Camera.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Camera.cpp -o CMakeFiles/mc.dir/src/Camera.cpp.s
-
-CMakeFiles/mc.dir/src/Chunk.cpp.o: CMakeFiles/mc.dir/flags.make
-CMakeFiles/mc.dir/src/Chunk.cpp.o: ../src/Chunk.cpp
-CMakeFiles/mc.dir/src/Chunk.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mc.dir/src/Chunk.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Chunk.cpp.o -MF CMakeFiles/mc.dir/src/Chunk.cpp.o.d -o CMakeFiles/mc.dir/src/Chunk.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Chunk.cpp
-
-CMakeFiles/mc.dir/src/Chunk.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/Chunk.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Chunk.cpp > CMakeFiles/mc.dir/src/Chunk.cpp.i
-
-CMakeFiles/mc.dir/src/Chunk.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/Chunk.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Chunk.cpp -o CMakeFiles/mc.dir/src/Chunk.cpp.s
-
-CMakeFiles/mc.dir/src/ChunkBuilder.cpp.o: CMakeFiles/mc.dir/flags.make
-CMakeFiles/mc.dir/src/ChunkBuilder.cpp.o: ../src/ChunkBuilder.cpp
-CMakeFiles/mc.dir/src/ChunkBuilder.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mc.dir/src/ChunkBuilder.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/ChunkBuilder.cpp.o -MF CMakeFiles/mc.dir/src/ChunkBuilder.cpp.o.d -o CMakeFiles/mc.dir/src/ChunkBuilder.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ChunkBuilder.cpp
-
-CMakeFiles/mc.dir/src/ChunkBuilder.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/ChunkBuilder.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ChunkBuilder.cpp > CMakeFiles/mc.dir/src/ChunkBuilder.cpp.i
-
-CMakeFiles/mc.dir/src/ChunkBuilder.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/ChunkBuilder.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ChunkBuilder.cpp -o CMakeFiles/mc.dir/src/ChunkBuilder.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/explo/Twixt/src/Camera.cpp -o CMakeFiles/mc.dir/src/Camera.cpp.s
 
 CMakeFiles/mc.dir/src/Cube.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/Cube.cpp.o: ../src/Cube.cpp
 CMakeFiles/mc.dir/src/Cube.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mc.dir/src/Cube.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Cube.cpp.o -MF CMakeFiles/mc.dir/src/Cube.cpp.o.d -o CMakeFiles/mc.dir/src/Cube.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Cube.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mc.dir/src/Cube.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Cube.cpp.o -MF CMakeFiles/mc.dir/src/Cube.cpp.o.d -o CMakeFiles/mc.dir/src/Cube.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/Cube.cpp
 
 CMakeFiles/mc.dir/src/Cube.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/Cube.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Cube.cpp > CMakeFiles/mc.dir/src/Cube.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/explo/Twixt/src/Cube.cpp > CMakeFiles/mc.dir/src/Cube.cpp.i
 
 CMakeFiles/mc.dir/src/Cube.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/Cube.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Cube.cpp -o CMakeFiles/mc.dir/src/Cube.cpp.s
-
-CMakeFiles/mc.dir/src/GameEngine.cpp.o: CMakeFiles/mc.dir/flags.make
-CMakeFiles/mc.dir/src/GameEngine.cpp.o: ../src/GameEngine.cpp
-CMakeFiles/mc.dir/src/GameEngine.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mc.dir/src/GameEngine.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/GameEngine.cpp.o -MF CMakeFiles/mc.dir/src/GameEngine.cpp.o.d -o CMakeFiles/mc.dir/src/GameEngine.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/GameEngine.cpp
-
-CMakeFiles/mc.dir/src/GameEngine.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/GameEngine.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/GameEngine.cpp > CMakeFiles/mc.dir/src/GameEngine.cpp.i
-
-CMakeFiles/mc.dir/src/GameEngine.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/GameEngine.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/GameEngine.cpp -o CMakeFiles/mc.dir/src/GameEngine.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/explo/Twixt/src/Cube.cpp -o CMakeFiles/mc.dir/src/Cube.cpp.s
 
 CMakeFiles/mc.dir/src/Noise.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/Noise.cpp.o: ../src/Noise.cpp
 CMakeFiles/mc.dir/src/Noise.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mc.dir/src/Noise.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Noise.cpp.o -MF CMakeFiles/mc.dir/src/Noise.cpp.o.d -o CMakeFiles/mc.dir/src/Noise.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Noise.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mc.dir/src/Noise.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Noise.cpp.o -MF CMakeFiles/mc.dir/src/Noise.cpp.o.d -o CMakeFiles/mc.dir/src/Noise.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/Noise.cpp
 
 CMakeFiles/mc.dir/src/Noise.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/Noise.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Noise.cpp > CMakeFiles/mc.dir/src/Noise.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/explo/Twixt/src/Noise.cpp > CMakeFiles/mc.dir/src/Noise.cpp.i
 
 CMakeFiles/mc.dir/src/Noise.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/Noise.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Noise.cpp -o CMakeFiles/mc.dir/src/Noise.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/explo/Twixt/src/Noise.cpp -o CMakeFiles/mc.dir/src/Noise.cpp.s
 
 CMakeFiles/mc.dir/src/Shader.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/Shader.cpp.o: ../src/Shader.cpp
 CMakeFiles/mc.dir/src/Shader.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mc.dir/src/Shader.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Shader.cpp.o -MF CMakeFiles/mc.dir/src/Shader.cpp.o.d -o CMakeFiles/mc.dir/src/Shader.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mc.dir/src/Shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Shader.cpp.o -MF CMakeFiles/mc.dir/src/Shader.cpp.o.d -o CMakeFiles/mc.dir/src/Shader.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/Shader.cpp
 
 CMakeFiles/mc.dir/src/Shader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/Shader.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Shader.cpp > CMakeFiles/mc.dir/src/Shader.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/explo/Twixt/src/Shader.cpp > CMakeFiles/mc.dir/src/Shader.cpp.i
 
 CMakeFiles/mc.dir/src/Shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/Shader.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Shader.cpp -o CMakeFiles/mc.dir/src/Shader.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/explo/Twixt/src/Shader.cpp -o CMakeFiles/mc.dir/src/Shader.cpp.s
 
 CMakeFiles/mc.dir/src/ShaderManager.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/ShaderManager.cpp.o: ../src/ShaderManager.cpp
 CMakeFiles/mc.dir/src/ShaderManager.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mc.dir/src/ShaderManager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/ShaderManager.cpp.o -MF CMakeFiles/mc.dir/src/ShaderManager.cpp.o.d -o CMakeFiles/mc.dir/src/ShaderManager.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ShaderManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mc.dir/src/ShaderManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/ShaderManager.cpp.o -MF CMakeFiles/mc.dir/src/ShaderManager.cpp.o.d -o CMakeFiles/mc.dir/src/ShaderManager.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/ShaderManager.cpp
 
 CMakeFiles/mc.dir/src/ShaderManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/ShaderManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ShaderManager.cpp > CMakeFiles/mc.dir/src/ShaderManager.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/explo/Twixt/src/ShaderManager.cpp > CMakeFiles/mc.dir/src/ShaderManager.cpp.i
 
 CMakeFiles/mc.dir/src/ShaderManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/ShaderManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ShaderManager.cpp -o CMakeFiles/mc.dir/src/ShaderManager.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/explo/Twixt/src/ShaderManager.cpp -o CMakeFiles/mc.dir/src/ShaderManager.cpp.s
 
 CMakeFiles/mc.dir/src/Texture.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/Texture.cpp.o: ../src/Texture.cpp
 CMakeFiles/mc.dir/src/Texture.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/mc.dir/src/Texture.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Texture.cpp.o -MF CMakeFiles/mc.dir/src/Texture.cpp.o.d -o CMakeFiles/mc.dir/src/Texture.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Texture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mc.dir/src/Texture.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Texture.cpp.o -MF CMakeFiles/mc.dir/src/Texture.cpp.o.d -o CMakeFiles/mc.dir/src/Texture.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/Texture.cpp
 
 CMakeFiles/mc.dir/src/Texture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/Texture.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Texture.cpp > CMakeFiles/mc.dir/src/Texture.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/explo/Twixt/src/Texture.cpp > CMakeFiles/mc.dir/src/Texture.cpp.i
 
 CMakeFiles/mc.dir/src/Texture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/Texture.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Texture.cpp -o CMakeFiles/mc.dir/src/Texture.cpp.s
-
-CMakeFiles/mc.dir/src/World.cpp.o: CMakeFiles/mc.dir/flags.make
-CMakeFiles/mc.dir/src/World.cpp.o: ../src/World.cpp
-CMakeFiles/mc.dir/src/World.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/mc.dir/src/World.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/World.cpp.o -MF CMakeFiles/mc.dir/src/World.cpp.o.d -o CMakeFiles/mc.dir/src/World.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/World.cpp
-
-CMakeFiles/mc.dir/src/World.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/World.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/World.cpp > CMakeFiles/mc.dir/src/World.cpp.i
-
-CMakeFiles/mc.dir/src/World.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/World.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/World.cpp -o CMakeFiles/mc.dir/src/World.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/explo/Twixt/src/Texture.cpp -o CMakeFiles/mc.dir/src/Texture.cpp.s
 
 CMakeFiles/mc.dir/src/main.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/mc.dir/src/main.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/mc.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/main.cpp.o -MF CMakeFiles/mc.dir/src/main.cpp.o.d -o CMakeFiles/mc.dir/src/main.cpp.o -c /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mc.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/main.cpp.o -MF CMakeFiles/mc.dir/src/main.cpp.o.d -o CMakeFiles/mc.dir/src/main.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/main.cpp
 
 CMakeFiles/mc.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/main.cpp > CMakeFiles/mc.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/explo/Twixt/src/main.cpp > CMakeFiles/mc.dir/src/main.cpp.i
 
 CMakeFiles/mc.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/main.cpp -o CMakeFiles/mc.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/explo/Twixt/src/main.cpp -o CMakeFiles/mc.dir/src/main.cpp.s
 
 # Object files for target mc
 mc_OBJECTS = \
 "CMakeFiles/mc.dir/src/Camera.cpp.o" \
-"CMakeFiles/mc.dir/src/Chunk.cpp.o" \
-"CMakeFiles/mc.dir/src/ChunkBuilder.cpp.o" \
 "CMakeFiles/mc.dir/src/Cube.cpp.o" \
-"CMakeFiles/mc.dir/src/GameEngine.cpp.o" \
 "CMakeFiles/mc.dir/src/Noise.cpp.o" \
 "CMakeFiles/mc.dir/src/Shader.cpp.o" \
 "CMakeFiles/mc.dir/src/ShaderManager.cpp.o" \
 "CMakeFiles/mc.dir/src/Texture.cpp.o" \
-"CMakeFiles/mc.dir/src/World.cpp.o" \
 "CMakeFiles/mc.dir/src/main.cpp.o"
 
 # External object files for target mc
 mc_EXTERNAL_OBJECTS =
 
 mc: CMakeFiles/mc.dir/src/Camera.cpp.o
-mc: CMakeFiles/mc.dir/src/Chunk.cpp.o
-mc: CMakeFiles/mc.dir/src/ChunkBuilder.cpp.o
 mc: CMakeFiles/mc.dir/src/Cube.cpp.o
-mc: CMakeFiles/mc.dir/src/GameEngine.cpp.o
 mc: CMakeFiles/mc.dir/src/Noise.cpp.o
 mc: CMakeFiles/mc.dir/src/Shader.cpp.o
 mc: CMakeFiles/mc.dir/src/ShaderManager.cpp.o
 mc: CMakeFiles/mc.dir/src/Texture.cpp.o
-mc: CMakeFiles/mc.dir/src/World.cpp.o
 mc: CMakeFiles/mc.dir/src/main.cpp.o
 mc: CMakeFiles/mc.dir/build.make
 mc: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 mc: CMakeFiles/mc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable mc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable mc"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -266,6 +202,6 @@ CMakeFiles/mc.dir/clean:
 .PHONY : CMakeFiles/mc.dir/clean
 
 CMakeFiles/mc.dir/depend:
-	cd /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819 /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819 /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles/mc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/e20230004281/Documents/2m1/explo/Twixt/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/e20230004281/Documents/2m1/explo/Twixt /home/e20230004281/Documents/2m1/explo/Twixt /home/e20230004281/Documents/2m1/explo/Twixt/build /home/e20230004281/Documents/2m1/explo/Twixt/build /home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles/mc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mc.dir/depend
 

@@ -3,52 +3,43 @@
 cmake_policy(SET CMP0009 NEW)
 
 # SOURCES at CMakeLists.txt:10 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/e20230004281/Documents/2m1/explo/Twixt/src/*.cpp")
 set(OLD_GLOB
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Camera.cpp"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Chunk.cpp"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ChunkBuilder.cpp"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Cube.cpp"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/GameEngine.cpp"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Noise.cpp"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Shader.cpp"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ShaderManager.cpp"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Texture.cpp"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/World.cpp"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/main.cpp"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Camera.cpp"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Cube.cpp"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Noise.cpp"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Shader.cpp"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/ShaderManager.cpp"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Texture.cpp"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/main.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # SOURCES at CMakeLists.txt:10 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/*.h")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/e20230004281/Documents/2m1/explo/Twixt/src/*.h")
 set(OLD_GLOB
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Camera.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Chunk.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ChunkBuilder.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ChunkKey.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Constants.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Cube.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/GameEngine.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Noise.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Shader.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/ShaderManager.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/Texture.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/World.h"
-  "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/stb_image.h"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Camera.h"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Constants.h"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Cube.h"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Noise.h"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Shader.h"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/ShaderManager.h"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/Texture.h"
+  "/home/e20230004281/Documents/2m1/explo/Twixt/src/stb_image.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # SOURCES at CMakeLists.txt:10 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/src/*.hpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/e20230004281/Documents/2m1/explo/Twixt/src/*.hpp")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles/cmake.verify_globs")
 endif()

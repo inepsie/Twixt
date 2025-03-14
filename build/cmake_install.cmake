@@ -1,4 +1,4 @@
-# Install script for directory: /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819
+# Install script for directory: /home/e20230004281/Documents/2m1/explo/Twixt
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/e20230004281/Documents/2m1/explo/Twixt/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

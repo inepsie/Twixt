@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819
+CMAKE_SOURCE_DIR = /home/e20230004281/Documents/2m1/explo/Twixt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build
+CMAKE_BINARY_DIR = /home/e20230004281/Documents/2m1/explo/Twixt/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles /home/e20230004281/Documents/2m1/explo/Twixt/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -113,7 +113,7 @@ preinstall/fast:
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -P /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles/VerifyGlobs.cmake
+	$(CMAKE_COMMAND) -P /home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -154,54 +154,6 @@ src/Camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/Camera.cpp.s
 .PHONY : src/Camera.cpp.s
 
-src/Chunk.o: src/Chunk.cpp.o
-.PHONY : src/Chunk.o
-
-# target to build an object file
-src/Chunk.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/Chunk.cpp.o
-.PHONY : src/Chunk.cpp.o
-
-src/Chunk.i: src/Chunk.cpp.i
-.PHONY : src/Chunk.i
-
-# target to preprocess a source file
-src/Chunk.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/Chunk.cpp.i
-.PHONY : src/Chunk.cpp.i
-
-src/Chunk.s: src/Chunk.cpp.s
-.PHONY : src/Chunk.s
-
-# target to generate assembly for a file
-src/Chunk.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/Chunk.cpp.s
-.PHONY : src/Chunk.cpp.s
-
-src/ChunkBuilder.o: src/ChunkBuilder.cpp.o
-.PHONY : src/ChunkBuilder.o
-
-# target to build an object file
-src/ChunkBuilder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/ChunkBuilder.cpp.o
-.PHONY : src/ChunkBuilder.cpp.o
-
-src/ChunkBuilder.i: src/ChunkBuilder.cpp.i
-.PHONY : src/ChunkBuilder.i
-
-# target to preprocess a source file
-src/ChunkBuilder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/ChunkBuilder.cpp.i
-.PHONY : src/ChunkBuilder.cpp.i
-
-src/ChunkBuilder.s: src/ChunkBuilder.cpp.s
-.PHONY : src/ChunkBuilder.s
-
-# target to generate assembly for a file
-src/ChunkBuilder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/ChunkBuilder.cpp.s
-.PHONY : src/ChunkBuilder.cpp.s
-
 src/Cube.o: src/Cube.cpp.o
 .PHONY : src/Cube.o
 
@@ -225,30 +177,6 @@ src/Cube.s: src/Cube.cpp.s
 src/Cube.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/Cube.cpp.s
 .PHONY : src/Cube.cpp.s
-
-src/GameEngine.o: src/GameEngine.cpp.o
-.PHONY : src/GameEngine.o
-
-# target to build an object file
-src/GameEngine.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/GameEngine.cpp.o
-.PHONY : src/GameEngine.cpp.o
-
-src/GameEngine.i: src/GameEngine.cpp.i
-.PHONY : src/GameEngine.i
-
-# target to preprocess a source file
-src/GameEngine.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/GameEngine.cpp.i
-.PHONY : src/GameEngine.cpp.i
-
-src/GameEngine.s: src/GameEngine.cpp.s
-.PHONY : src/GameEngine.s
-
-# target to generate assembly for a file
-src/GameEngine.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/GameEngine.cpp.s
-.PHONY : src/GameEngine.cpp.s
 
 src/Noise.o: src/Noise.cpp.o
 .PHONY : src/Noise.o
@@ -346,30 +274,6 @@ src/Texture.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/Texture.cpp.s
 .PHONY : src/Texture.cpp.s
 
-src/World.o: src/World.cpp.o
-.PHONY : src/World.o
-
-# target to build an object file
-src/World.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/World.cpp.o
-.PHONY : src/World.cpp.o
-
-src/World.i: src/World.cpp.i
-.PHONY : src/World.i
-
-# target to preprocess a source file
-src/World.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/World.cpp.i
-.PHONY : src/World.cpp.i
-
-src/World.s: src/World.cpp.s
-.PHONY : src/World.s
-
-# target to generate assembly for a file
-src/World.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/World.cpp.s
-.PHONY : src/World.cpp.s
-
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -406,18 +310,9 @@ help:
 	@echo "... src/Camera.o"
 	@echo "... src/Camera.i"
 	@echo "... src/Camera.s"
-	@echo "... src/Chunk.o"
-	@echo "... src/Chunk.i"
-	@echo "... src/Chunk.s"
-	@echo "... src/ChunkBuilder.o"
-	@echo "... src/ChunkBuilder.i"
-	@echo "... src/ChunkBuilder.s"
 	@echo "... src/Cube.o"
 	@echo "... src/Cube.i"
 	@echo "... src/Cube.s"
-	@echo "... src/GameEngine.o"
-	@echo "... src/GameEngine.i"
-	@echo "... src/GameEngine.s"
 	@echo "... src/Noise.o"
 	@echo "... src/Noise.i"
 	@echo "... src/Noise.s"
@@ -430,9 +325,6 @@ help:
 	@echo "... src/Texture.o"
 	@echo "... src/Texture.i"
 	@echo "... src/Texture.s"
-	@echo "... src/World.o"
-	@echo "... src/World.i"
-	@echo "... src/World.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -447,7 +339,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -P /home/e20230004281/Documents/2m1/moteur/mc/projet/hai819/build/CMakeFiles/VerifyGlobs.cmake
+	$(CMAKE_COMMAND) -P /home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
