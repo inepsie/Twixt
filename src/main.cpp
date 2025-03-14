@@ -1,7 +1,6 @@
 #include "Camera.h"
 #include "Constants.h"
 #include "Cube.h"
-#include "GameEngine.h"
 #include "Noise.h"
 #include "Shader.h"
 #include "ShaderManager.h"
@@ -151,7 +150,7 @@ int main() {
   glEnable(GL_MULTISAMPLE);
   GLFWwindow *window =
       glfwCreateWindow(C::WINDOW_WIDTH, C::WINDOW_HEIGHT,
-                       "Minecraft lite - Moteur de jeux", NULL, NULL);
+                       "Twixt - Explo", NULL, NULL);
   if (!window) {
     glfwTerminate();
     return -100;
