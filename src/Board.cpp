@@ -48,7 +48,7 @@ void Board::init(size_t size) {
     std::mt19937 gen(rd());  // Générateur basé sur random_device
     std::uniform_int_distribution<GLuint> dis(1, 3); // Distribution entre 0 et 2
     m_board[i] = dis(gen);
-    std::cout << "i : " << i << "  ->    " << m_board[i] << std::endl;
+    //std::cout << "i : " << i << "  ->    " << m_board[i] << std::endl;
     }
 
   glGenVertexArrays(1, &m_vao);
