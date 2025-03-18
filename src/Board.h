@@ -1,6 +1,7 @@
 #ifndef BOARD_H_
 #define BOARD_H_
 #include "Camera.h"
+#include "Link.h"
 #include <cstddef> // Pour size_t
 #include <fstream>
 #include <iostream>
@@ -30,12 +31,17 @@ public:
   std::array<size_t, 2> id_1dto2d(size_t ind);
   void draw(Camera cam);
         void reset(GLuint valeur);
-        void play(GLuint valeur, size_t j, size_t i);
+        void play(size_t j, size_t i);
+    bool unbound(size_t ind);
+    bool unbound(size_t j, size_t i);
+    std::array<size_t, 2> link_ind(size_t type, size_t j, size_t i);
 
 private:
   std::vector<GLuint> m_board; // contient l'état des pions, pas les links
+    std::vector<Link> m_links;
   size_t m_size = 0;
   size_t m_size_2 = 0;
+    size_t m_turn = 0;
   GLuint m_vao, m_buffer;
 };
 

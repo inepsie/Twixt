@@ -2,18 +2,16 @@
 #define LINK_H_
 
 #include "GL/glew.h"
-#include <cstddef>  // Pour size_t
-#include <vector>   // Pour std::vector
+#include <cstddef> // Pour size_t
+#include <vector>  // Pour std::vector
 
 class Link {
 public:
-    Link(size_t size);
-    ~Link();
+  Link();
+  ~Link();
 
 private:
-    size_t m_i, m_j;
-    std::vector<GLubyte> m_board;
+  GLuint m_link[8] = {};
 };
-
 
 #endif // LINK_H_

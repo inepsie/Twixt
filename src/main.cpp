@@ -2,6 +2,7 @@
 #include "Board.h"
 #include "Constants.h"
 #include "Quad.h"
+#include "Link.h"
 #include "Noise.h"
 #include "Shader.h"
 #include "ShaderManager.h"
@@ -9,6 +10,7 @@
 #include "glm/gtx/transform.hpp"
 #include <GL/glew.h> // first
 #include <GLFW/glfw3.h>
+#include <array>
 #include <chrono>
 #include <cmath>
 #include <functional>
@@ -27,48 +29,35 @@ static double _xy_quad[2] = {0, 0};
 
 namespace C = Constants; //  Pour ne pas à avoir à écrire Constants:: à chaque fois
 
-GLuint player = 0;
-
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
-  int bsize = C::BOARD_SIZE;
-  double f_bsize = (double) bsize;
-
-    xpos = xpos - 1.0 * f_bsize;
-    ypos = ypos - 1.0 * f_bsize;
-    std::cout << "Position de la souris : (" << xpos << ", " << ypos << ")" << std::endl;
+    xpos = xpos - 0.5 * C::QUAD_SIZE;
+    ypos = ypos - 0.5 * C::QUAD_SIZE;
     _xy_int[0] = (xpos) / C::QUAD_SIZE;
     _xy_int[1] = (ypos) / C::QUAD_SIZE;
-
-    _xy_quad[0] = (double)(C::BOARD_SIZE - _xy_int[0]) * C::FQUAD_SIZE + 0.0 * C::FQUAD_SIZE;
-    _xy_quad[1] = (double)(C::BOARD_SIZE - _xy_int[1]) * C::FQUAD_SIZE + 0.0 * C::FQUAD_SIZE;
-
-
-    //std::cout << "Position de la souris : (" << xpos << ", " << ypos << ")" << std::endl;
-    std::cout << "Indices : (" << _xy_int[0] << ", " << _xy_int[1] << ")" << std::endl;
-    std::cout << "_xy_quad : (" << _xy_quad[0] << ", " << _xy_quad[1] << ")" << std::endl;
-
+    _xy_quad[0] = (double)(C::BOARD_SIZE - _xy_int[0]) * C::NORM_QUAD_SIZE;
+    _xy_quad[1] = (double)(C::BOARD_SIZE - _xy_int[1]) * C::NORM_QUAD_SIZE;
 }
 
 void mouse_button_callback(GLFWwindow *window, int button, int action,
                            int mods) {
-
   Board &board = Board::getInstance();
   float fboard_size = (double) C::BOARD_SIZE;
   float fw_height = (double) C::WINDOW_HEIGHT;
   float fw_width = (double) C::WINDOW_WIDTH;
   size_t x_ind = C::BOARD_SIZE - _xy_int[0] - 1;
   size_t y_ind = C::BOARD_SIZE - _xy_int[1] - 1;
+  std::array<size_t, 2> coords;
   glfwGetCursorPos(window, &_xy_mouse_double[0], &_xy_mouse_double[1]);
-  // if(button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS){
   if (button == GLFW_MOUSE_BUTTON_LEFT) {
     _clickstate = (_clickstate + 1) % 2;
   }
 
   if(_clickstate == 1){
-    //board.reset(player);
-      board.play(player, y_ind, x_ind);
+      board.play(y_ind, x_ind);
       std::cout << "PLAY ind : " << x_ind << ",    " << y_ind << std::endl;
-    player = (player + 1) % 4;
+      for (int i=0 ; i<8; ++i) {
+        coords = board.link_ind(i, y_ind, x_ind);
+          }
   }
 }
 
@@ -102,7 +91,7 @@ static inline void draw_cube_repere(Camera cam) {
 
 static inline void draw(Camera cam){
   Board &board = Board::getInstance();
-  glClearColor(0.7f, 0.7f, 0.75f, 1.0f);
+  glClearColor(0.7f, 0.7f, 0.7f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   board.draw(cam);
