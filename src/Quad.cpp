@@ -11,7 +11,7 @@ namespace C = Constants; //  Pour ne pas à avoir à écrire Constants:: à chaq
 Quad::Quad(std::shared_ptr<Shader> shader) {
   shaderProgram = shader->getID();  // Utilise l'opérateur -> pour accéder à l'ID
 
-GLfloat size = C::QUAD_SIZE / C::WINDOW_HEIGHT;
+GLfloat size = (C::QUAD_SIZE / C::WINDOW_HEIGHT) / 2.0;
 GLfloat quadVertices[16] = {
     -size,  size,  0, 0, // Coin haut gauche
      size,  size,  0, 0, // Coin haut droit
