@@ -64,7 +64,7 @@ std::array<size_t, 2> Board::id_1dto2d(size_t ind) {
     return {ind % m_size, ind / m_size};
 }
 
-size_t Board::id_2dto1d(size_t j, size_t i) {
+size_t Board::id_2dto1d(size_t i, size_t j) {
     return j * m_size + i;
 }
 
@@ -108,16 +108,17 @@ void Board::reset(GLuint valeur) {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void Board::play(size_t j, size_t i) {
-    size_t ind = id_2dto1d(j, i);
+void Board::play(size_t i, size_t j) {
+    size_t ind = id_2dto1d(i, j);
     size_t offset = ind * sizeof(GLuint);
     size_t size = m_size_2 * sizeof(GLuint);
     GLuint * ptr = nullptr;
     GLuint val = 2 + (m_turn % 2);
-    if(unbound(j, i)) return;
+    if(unbound(i, j)) return;
     if(m_board[ind] != 1) return;
+    std::cout << "play i, j ->    " << i << " ,    " << j << std::endl;
+    std::cout << "ind ->    " << ind << std::endl;
 
-    std::cout << "TURN : " << 2 + (m_turn % 2) << std::endl;
     m_board[ind] = val;
     glBindBuffer(GL_ARRAY_BUFFER, m_buffer);
 
@@ -139,25 +140,25 @@ bool Board::unbound(size_t ind){
   return false;
 }
 
-bool Board::unbound(size_t j, size_t i){
-  if(i < 0) return true;
-  if(j < 0) return true;
-  if(i >= m_size) return true;
-  if(j >= m_size) return true;
+bool Board::unbound(size_t x, size_t y){
+  if(x < 0) return true;
+  if(y < 0) return true;
+  if(x >= m_size) return true;
+  if(y >= m_size) return true;
   return false;
 }
 
-std::array<size_t, 2> Board::link_ind(size_t type, size_t j, size_t i){
+std::array<size_t, 2> Board::link_ind(size_t type, size_t x, size_t y){
   std::array<size_t, 2> coords;
   switch (type) {
-    case 0 :return (coords = {j-2, i+1});
-    case 1 :return (coords = {j-1, i+2});
-    case 2 :return (coords = {j+1, i+2});
-    case 3 :return (coords = {j+2, i+1});
-    case 4 :return (coords = {j+2, i-1});
-    case 5 :return (coords = {j+1, i-2});
-    case 6 :return (coords = {j-1, i-2});
-    case 7 :return (coords = {j-2, i-1});
+    case 0 :return (coords = {x+1, y-2});
+    case 1 :return (coords = {x+2, y-1});
+    case 2 :return (coords = {x+2, y+1});
+    case 3 :return (coords = {x+1, y+2});
+    case 4 :return (coords = {x-1, y+2});
+    case 5 :return (coords = {x-2, y+1});
+    case 6 :return (coords = {x-2, y-1});
+    case 7 :return (coords = {x-1, y-2});
     default:
       throw std::runtime_error("Board::link_ind, switch case default, cas non prévu");
       return (coords = {0, 0});

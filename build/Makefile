@@ -226,6 +226,30 @@ src/Link.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/Link.cpp.s
 .PHONY : src/Link.cpp.s
 
+src/Mouse.o: src/Mouse.cpp.o
+.PHONY : src/Mouse.o
+
+# target to build an object file
+src/Mouse.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/Mouse.cpp.o
+.PHONY : src/Mouse.cpp.o
+
+src/Mouse.i: src/Mouse.cpp.i
+.PHONY : src/Mouse.i
+
+# target to preprocess a source file
+src/Mouse.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/Mouse.cpp.i
+.PHONY : src/Mouse.cpp.i
+
+src/Mouse.s: src/Mouse.cpp.s
+.PHONY : src/Mouse.s
+
+# target to generate assembly for a file
+src/Mouse.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mc.dir/build.make CMakeFiles/mc.dir/src/Mouse.cpp.s
+.PHONY : src/Mouse.cpp.s
+
 src/Noise.o: src/Noise.cpp.o
 .PHONY : src/Noise.o
 
@@ -391,6 +415,9 @@ help:
 	@echo "... src/Link.o"
 	@echo "... src/Link.i"
 	@echo "... src/Link.s"
+	@echo "... src/Mouse.o"
+	@echo "... src/Mouse.i"
+	@echo "... src/Mouse.s"
 	@echo "... src/Noise.o"
 	@echo "... src/Noise.i"
 	@echo "... src/Noise.s"

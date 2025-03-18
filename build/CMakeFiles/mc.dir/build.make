@@ -125,10 +125,24 @@ CMakeFiles/mc.dir/src/Link.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/Link.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/explo/Twixt/src/Link.cpp -o CMakeFiles/mc.dir/src/Link.cpp.s
 
+CMakeFiles/mc.dir/src/Mouse.cpp.o: CMakeFiles/mc.dir/flags.make
+CMakeFiles/mc.dir/src/Mouse.cpp.o: ../src/Mouse.cpp
+CMakeFiles/mc.dir/src/Mouse.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mc.dir/src/Mouse.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Mouse.cpp.o -MF CMakeFiles/mc.dir/src/Mouse.cpp.o.d -o CMakeFiles/mc.dir/src/Mouse.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/Mouse.cpp
+
+CMakeFiles/mc.dir/src/Mouse.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mc.dir/src/Mouse.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/e20230004281/Documents/2m1/explo/Twixt/src/Mouse.cpp > CMakeFiles/mc.dir/src/Mouse.cpp.i
+
+CMakeFiles/mc.dir/src/Mouse.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mc.dir/src/Mouse.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/e20230004281/Documents/2m1/explo/Twixt/src/Mouse.cpp -o CMakeFiles/mc.dir/src/Mouse.cpp.s
+
 CMakeFiles/mc.dir/src/Noise.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/Noise.cpp.o: ../src/Noise.cpp
 CMakeFiles/mc.dir/src/Noise.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mc.dir/src/Noise.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mc.dir/src/Noise.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Noise.cpp.o -MF CMakeFiles/mc.dir/src/Noise.cpp.o.d -o CMakeFiles/mc.dir/src/Noise.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/Noise.cpp
 
 CMakeFiles/mc.dir/src/Noise.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/mc.dir/src/Noise.cpp.s: cmake_force
 CMakeFiles/mc.dir/src/Quad.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/Quad.cpp.o: ../src/Quad.cpp
 CMakeFiles/mc.dir/src/Quad.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mc.dir/src/Quad.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mc.dir/src/Quad.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Quad.cpp.o -MF CMakeFiles/mc.dir/src/Quad.cpp.o.d -o CMakeFiles/mc.dir/src/Quad.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/Quad.cpp
 
 CMakeFiles/mc.dir/src/Quad.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/mc.dir/src/Quad.cpp.s: cmake_force
 CMakeFiles/mc.dir/src/Shader.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/Shader.cpp.o: ../src/Shader.cpp
 CMakeFiles/mc.dir/src/Shader.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mc.dir/src/Shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mc.dir/src/Shader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Shader.cpp.o -MF CMakeFiles/mc.dir/src/Shader.cpp.o.d -o CMakeFiles/mc.dir/src/Shader.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/Shader.cpp
 
 CMakeFiles/mc.dir/src/Shader.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/mc.dir/src/Shader.cpp.s: cmake_force
 CMakeFiles/mc.dir/src/ShaderManager.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/ShaderManager.cpp.o: ../src/ShaderManager.cpp
 CMakeFiles/mc.dir/src/ShaderManager.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mc.dir/src/ShaderManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/mc.dir/src/ShaderManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/ShaderManager.cpp.o -MF CMakeFiles/mc.dir/src/ShaderManager.cpp.o.d -o CMakeFiles/mc.dir/src/ShaderManager.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/ShaderManager.cpp
 
 CMakeFiles/mc.dir/src/ShaderManager.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/mc.dir/src/ShaderManager.cpp.s: cmake_force
 CMakeFiles/mc.dir/src/Texture.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/Texture.cpp.o: ../src/Texture.cpp
 CMakeFiles/mc.dir/src/Texture.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/mc.dir/src/Texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/mc.dir/src/Texture.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/Texture.cpp.o -MF CMakeFiles/mc.dir/src/Texture.cpp.o.d -o CMakeFiles/mc.dir/src/Texture.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/Texture.cpp
 
 CMakeFiles/mc.dir/src/Texture.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/mc.dir/src/Texture.cpp.s: cmake_force
 CMakeFiles/mc.dir/src/main.cpp.o: CMakeFiles/mc.dir/flags.make
 CMakeFiles/mc.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/mc.dir/src/main.cpp.o: CMakeFiles/mc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/mc.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/mc.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mc.dir/src/main.cpp.o -MF CMakeFiles/mc.dir/src/main.cpp.o.d -o CMakeFiles/mc.dir/src/main.cpp.o -c /home/e20230004281/Documents/2m1/explo/Twixt/src/main.cpp
 
 CMakeFiles/mc.dir/src/main.cpp.i: cmake_force
@@ -215,6 +229,7 @@ mc_OBJECTS = \
 "CMakeFiles/mc.dir/src/Camera.cpp.o" \
 "CMakeFiles/mc.dir/src/Cube.cpp.o" \
 "CMakeFiles/mc.dir/src/Link.cpp.o" \
+"CMakeFiles/mc.dir/src/Mouse.cpp.o" \
 "CMakeFiles/mc.dir/src/Noise.cpp.o" \
 "CMakeFiles/mc.dir/src/Quad.cpp.o" \
 "CMakeFiles/mc.dir/src/Shader.cpp.o" \
@@ -229,6 +244,7 @@ mc: CMakeFiles/mc.dir/src/Board.cpp.o
 mc: CMakeFiles/mc.dir/src/Camera.cpp.o
 mc: CMakeFiles/mc.dir/src/Cube.cpp.o
 mc: CMakeFiles/mc.dir/src/Link.cpp.o
+mc: CMakeFiles/mc.dir/src/Mouse.cpp.o
 mc: CMakeFiles/mc.dir/src/Noise.cpp.o
 mc: CMakeFiles/mc.dir/src/Quad.cpp.o
 mc: CMakeFiles/mc.dir/src/Shader.cpp.o
@@ -238,7 +254,7 @@ mc: CMakeFiles/mc.dir/src/main.cpp.o
 mc: CMakeFiles/mc.dir/build.make
 mc: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 mc: CMakeFiles/mc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable mc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/e20230004281/Documents/2m1/explo/Twixt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable mc"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

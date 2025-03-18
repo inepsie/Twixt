@@ -1,5 +1,6 @@
 #include "Camera.h"
 #include "Board.h"
+#include "Mouse.h"
 #include "Constants.h"
 #include "Quad.h"
 #include "Link.h"
@@ -23,13 +24,14 @@
 
 static int _clickstate = 0;
 static double _xy_mouse_double[2] = {90.0f, 90.0f};
-static GLfloat _xy_mouse_float[2] = {90.0f, 90.0f};
 static int _xy_int[2] = {0, 0};
 static double _xy_quad[2] = {0, 0};
 
-namespace C = Constants; //  Pour ne pas à avoir à écrire Constants:: à chaque fois
+namespace C = Constants;
 
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
+  Mouse &mouse = Mouse::getInstance();
+    mouse.update(xpos, ypos);
     xpos = xpos - 0.5 * C::QUAD_SIZE;
     ypos = ypos - 0.5 * C::QUAD_SIZE;
     _xy_int[0] = (xpos) / C::QUAD_SIZE;
@@ -41,11 +43,7 @@ void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
 void mouse_button_callback(GLFWwindow *window, int button, int action,
                            int mods) {
   Board &board = Board::getInstance();
-  float fboard_size = (double) C::BOARD_SIZE;
-  float fw_height = (double) C::WINDOW_HEIGHT;
-  float fw_width = (double) C::WINDOW_WIDTH;
-  size_t x_ind = C::BOARD_SIZE - _xy_int[0] - 1;
-  size_t y_ind = C::BOARD_SIZE - _xy_int[1] - 1;
+  Mouse &mouse = Mouse::getInstance();
   std::array<size_t, 2> coords;
   glfwGetCursorPos(window, &_xy_mouse_double[0], &_xy_mouse_double[1]);
   if (button == GLFW_MOUSE_BUTTON_LEFT) {
@@ -53,10 +51,10 @@ void mouse_button_callback(GLFWwindow *window, int button, int action,
   }
 
   if(_clickstate == 1){
-      board.play(y_ind, x_ind);
-      std::cout << "PLAY ind : " << x_ind << ",    " << y_ind << std::endl;
+    coords = mouse.get_xy_ind();
+      board.play(coords[0], coords[1]);
       for (int i=0 ; i<8; ++i) {
-        coords = board.link_ind(i, y_ind, x_ind);
+        //coords = board.link_ind(i, , x_ind);
           }
   }
 }
@@ -64,6 +62,7 @@ void mouse_button_callback(GLFWwindow *window, int button, int action,
 static inline void init() {
   ShaderManager &shader_manager = ShaderManager::getInstance();
   Board &board = Board::getInstance();
+  Mouse &mouse = Mouse::getInstance();
   board.init(C::BOARD_SIZE);
   // Compute Shader - Map Compute
   //shader_manager.loadShader("mapCompute", "../res/shaders/map.comp");

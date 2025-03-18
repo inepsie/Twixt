@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/mc.dir/src/Cube.cpp.o.d"
   "CMakeFiles/mc.dir/src/Link.cpp.o"
   "CMakeFiles/mc.dir/src/Link.cpp.o.d"
+  "CMakeFiles/mc.dir/src/Mouse.cpp.o"
+  "CMakeFiles/mc.dir/src/Mouse.cpp.o.d"
   "CMakeFiles/mc.dir/src/Noise.cpp.o"
   "CMakeFiles/mc.dir/src/Noise.cpp.o.d"
   "CMakeFiles/mc.dir/src/Quad.cpp.o"
