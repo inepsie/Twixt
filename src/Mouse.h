@@ -16,6 +16,7 @@ public:
     static Mouse instance;
     return instance;
   }
+        void change_clickstate();
   void set_clickstate(int val);
   void set_xy_mouse_double(double x, double y);
   void set_xy_ind(size_t x, size_t y);

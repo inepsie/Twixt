@@ -9,9 +9,9 @@ class Link {
 public:
   Link();
   ~Link();
+  GLuint m_link[8] = {};
 
 private:
-  GLuint m_link[8] = {};
 };
 
 #endif // LINK_H_

@@ -4,6 +4,11 @@
 
 namespace C = Constants;
 
+void Mouse::change_clickstate(){
+    m_clickstate = (m_clickstate + 1) % 2;
+}
+
+
 void Mouse::set_clickstate(int val){
     m_clickstate = val;
 }
@@ -43,12 +48,15 @@ std::array<double, 2> Mouse::get_xy_quad(){
 }
 
 void Mouse::update(double x, double y){
-    m_xy_mouse_double[0] = x - 0.5 * C::QUAD_SIZE;
-    m_xy_mouse_double[1] = y - 0.5 * C::QUAD_SIZE;
+    m_xy_mouse_double[0] = x - 0.25 * C::QUAD_SIZE;
+    m_xy_mouse_double[1] = y - 0.25 * C::QUAD_SIZE;
 
     m_xy_ind[0] = (m_xy_mouse_double[0]) / C::QUAD_SIZE;
     m_xy_ind[1] = (m_xy_mouse_double[1]) / C::QUAD_SIZE;
 
     m_xy_quad[0] = (double)(C::BOARD_SIZE - m_xy_ind[0]) * C::NORM_QUAD_SIZE;
     m_xy_quad[1] = (double)(C::BOARD_SIZE - m_xy_ind[1]) * C::NORM_QUAD_SIZE;
+
+    m_xy_ind[0] = (C::BOARD_SIZE - 1) - m_xy_ind[0];
+    m_xy_ind[1] = (C::BOARD_SIZE - 1) - m_xy_ind[1];
 }
