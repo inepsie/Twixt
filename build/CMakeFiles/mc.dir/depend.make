@@ -4,7 +4,9 @@
 CMakeFiles/mc.dir/src/Board.cpp.o: ../src/Board.cpp
 CMakeFiles/mc.dir/src/Board.cpp.o: ../src/Board.h
 CMakeFiles/mc.dir/src/Board.cpp.o: ../src/Camera.h
+CMakeFiles/mc.dir/src/Board.cpp.o: ../src/Constants.h
 CMakeFiles/mc.dir/src/Board.cpp.o: ../src/Link.h
+CMakeFiles/mc.dir/src/Board.cpp.o: ../src/Mouse.h
 CMakeFiles/mc.dir/src/Board.cpp.o: ../src/Shader.h
 CMakeFiles/mc.dir/src/Board.cpp.o: ../src/ShaderManager.h
 

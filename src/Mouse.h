@@ -16,13 +16,14 @@ public:
     static Mouse instance;
     return instance;
   }
-        void change_clickstate();
+  void change_clickstate();
   void set_clickstate(int val);
   void set_xy_mouse_double(double x, double y);
   void set_xy_ind(size_t x, size_t y);
   void set_xy_quad(double x, double y);
   void update(double x, double y);
   int get_clickstate();
+  std::array<double, 2> ind_int_to_vec3(size_t i, size_t j);
   std::array<double, 2> get_xy_mouse_double();
   std::array<size_t, 2> get_xy_ind();
   std::array<double, 2> get_xy_quad();

@@ -5,7 +5,9 @@ CMakeFiles/mc.dir/src/Board.cpp.o
  /home/theo/m1/explo/Twixt/src/Board.cpp
  /home/theo/m1/explo/Twixt/src/Board.h
  /home/theo/m1/explo/Twixt/src/Camera.h
+ /home/theo/m1/explo/Twixt/src/Constants.h
  /home/theo/m1/explo/Twixt/src/Link.h
+ /home/theo/m1/explo/Twixt/src/Mouse.h
  /home/theo/m1/explo/Twixt/src/Shader.h
  /home/theo/m1/explo/Twixt/src/ShaderManager.h
 CMakeFiles/mc.dir/src/Camera.cpp.o

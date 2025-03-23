@@ -47,6 +47,13 @@ std::array<double, 2> Mouse::get_xy_quad(){
     return xy;
 }
 
+std::array<double, 2> Mouse::ind_int_to_vec3(size_t i, size_t j){
+    std::array<double, 2> pos;
+    pos[0] = (double)(i + 1) * C::NORM_QUAD_SIZE;
+    pos[1] = (double)(j + 1) * C::NORM_QUAD_SIZE;
+    return pos;
+}
+
 void Mouse::update(double x, double y){
     m_xy_mouse_double[0] = x - 0.25 * C::QUAD_SIZE;
     m_xy_mouse_double[1] = y - 0.25 * C::QUAD_SIZE;
@@ -56,7 +63,4 @@ void Mouse::update(double x, double y){
 
     m_xy_quad[0] = (double)(C::BOARD_SIZE - m_xy_ind[0]) * C::NORM_QUAD_SIZE;
     m_xy_quad[1] = (double)(C::BOARD_SIZE - m_xy_ind[1]) * C::NORM_QUAD_SIZE;
-
-    m_xy_ind[0] = (C::BOARD_SIZE - 1) - m_xy_ind[0];
-    m_xy_ind[1] = (C::BOARD_SIZE - 1) - m_xy_ind[1];
 }

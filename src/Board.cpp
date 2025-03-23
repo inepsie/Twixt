@@ -1,10 +1,13 @@
 #include "Board.h"
+#include "Constants.h"
+#include "Mouse.h"
 #include "Camera.h"
 #include "Shader.h"
 #include "ShaderManager.h"
 #include <array>
 #include <cstddef>
 #include <cstdlib>
+#include <glm/fwd.hpp>
 #include <memory>
 #include <random>
 
@@ -15,7 +18,7 @@ Board::Board() {
 }
 
 // Définition du destructeur
-Board::~Board() { m_board.clear(); }
+Board::~Board() {}
 
 Board &Board::getInstance() {
   if (!board) {
@@ -41,16 +44,39 @@ void Board::print_board(){
         }
         std::cout << std::endl;
     }
+        std::cout << "----------------------------------------------------" << std::endl;
+}
+
+void Board::print_links(){
+    int k = 0;
+    for(int i=0 ; i<m_size ; ++i){
+        for(int j=0 ; j<m_size ; ++j){
+            for(int n=0 ; n<8 ; ++n){
+                std::cout << m_links[k][n] << ", ";
+            }
+                std::cout << "|  ";
+            ++k;
+        }
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
+        std::cout << std::endl;
+        std::cout << "----------------------------------------------------" << std::endl;
+        std::cout << "----------------------------------------------------" << std::endl;
+        std::cout <<  std::endl;
+        std::cout <<  std::endl;
 }
 
 void Board::init(size_t size) {
-  m_size = size;
-  m_size_2 = size * size;
-  m_board.resize(m_size_2, 1);
-  m_links.resize(m_size_2);
+    std::fill(m_board.begin(), m_board.end(), 1); // Remplit `m_board` avec 1
 
-  glGenVertexArrays(1, &m_vao);
-  glBindVertexArray(m_vao);
+  // Points
+  glGenVertexArrays(1, &m_pointVAO);
+  glBindVertexArray(m_pointVAO);
   glEnableVertexAttribArray(0);
   glGenBuffers(1, &m_buffer);
   glBindBuffer(GL_ARRAY_BUFFER, m_buffer);
@@ -58,6 +84,73 @@ void Board::init(size_t size) {
                GL_STATIC_DRAW);
   glVertexAttribPointer(0, 1, GL_UNSIGNED_INT, GL_FALSE, sizeof(GLuint),
                         (const void *)0);
+
+  init_lines();
+}
+void Board::init_lines() {
+    glGenVertexArrays(1, &m_lineVAO);
+    glGenBuffers(1, &m_lineVBO);
+    glGenBuffers(1, &m_colorVBO); // Générer un buffer pour les couleurs
+
+    glBindVertexArray(m_lineVAO);
+
+    // VBO pour les positions
+    glBindBuffer(GL_ARRAY_BUFFER, m_lineVBO);
+    glBufferData(GL_ARRAY_BUFFER, m_lines.size() * sizeof(glm::vec3), m_lines.data(), GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), (void*)0);
+
+    // VBO pour les couleurs
+    glBindBuffer(GL_ARRAY_BUFFER, m_colorVBO);
+    glBufferData(GL_ARRAY_BUFFER, m_linesColors.size() * sizeof(glm::vec3), m_linesColors.data(), GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), (void*)0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+}
+
+void Board::add_line(size_t i, size_t j, size_t ni, size_t nj) {
+    Mouse &mouse = Mouse::getInstance();
+    std::array<double, 2> pos;
+    glm::vec3 color;
+
+    if(m_player == 1) color = glm::vec3(0.2, 0.2, 0.2);
+    else{color = glm::vec3(0.75, 0.0, 0.0);}
+    // Ajouter les points
+    pos = mouse.ind_int_to_vec3(i, j);
+    m_lines.push_back(glm::vec3(pos[0], pos[1], 0.0));
+    m_linesColors.push_back(color); // Associer une couleur
+
+    pos = mouse.ind_int_to_vec3(ni, nj);
+    m_lines.push_back(glm::vec3(pos[0], pos[1], 0.0));
+    m_linesColors.push_back(color); // Même couleur pour le deuxième point
+
+    // Mettre à jour le VBO des positions
+    glBindBuffer(GL_ARRAY_BUFFER, m_lineVBO);
+    glBufferData(GL_ARRAY_BUFFER, m_lines.size() * sizeof(glm::vec3), m_lines.data(), GL_DYNAMIC_DRAW);
+
+    // Mettre à jour le VBO des couleurs
+    glBindBuffer(GL_ARRAY_BUFFER, m_colorVBO);
+    glBufferData(GL_ARRAY_BUFFER, m_linesColors.size() * sizeof(glm::vec3), m_linesColors.data(), GL_DYNAMIC_DRAW);
+}
+void Board::draw_lines(Camera cam) {
+    ShaderManager &shader_manager = ShaderManager::getInstance();
+    std::shared_ptr<Shader> shader = shader_manager.getShader("linesDraw");
+    shader->use();
+
+    glm::mat4 mvp = cam.get_proj() * cam.get_view();
+    glBindVertexArray(m_lineVAO); // Associer VAO
+    shader->set_uniform("MVP", mvp);
+
+    glLineWidth(5.0f);
+
+    glDrawArrays(GL_LINES, 0, m_lines.size());
+
+    glLineWidth(1.0f);
+    shader->stop();
+    glBindVertexArray(0);
+    glUseProgram(0);
 }
 
 std::array<size_t, 2> Board::id_1dto2d(size_t ind) {
@@ -67,12 +160,17 @@ std::array<size_t, 2> Board::id_1dto2d(size_t ind) {
 size_t Board::id_2dto1d(size_t i, size_t j) { return j * m_size + i; }
 
 void Board::draw(Camera cam) {
+    draw_lines(cam);
+    draw_points(cam);
+}
+
+void Board::draw_points(Camera cam) {
   ShaderManager &shader_manager = ShaderManager::getInstance();
-  std::shared_ptr<Shader> shader = shader_manager.getShader("boardDraw");
+  std::shared_ptr<Shader> shader = shader_manager.getShader("pointsDraw");
   shader->use();
 
   glm::mat4 mvp = cam.get_proj() * cam.get_view();
-  glBindVertexArray(m_vao); // Associer VAO
+  glBindVertexArray(m_pointVAO); // Associer VAO
   shader->set_uniform("MVP", mvp);
   shader->set_uniform("view", cam.get_view());
   shader->set_uniform("board_size", (int)m_size);
@@ -106,7 +204,8 @@ void Board::reset(GLuint valeur) {
 
 void Board::play(size_t i, size_t j) {
   size_t ind = id_2dto1d(i, j);
-  size_t offset = ind * sizeof(GLuint);
+  size_t screen_ind = id_2dto1d(C::BOARD_SIZE - 1 - i, C::BOARD_SIZE - 1 - j);
+  size_t offset = screen_ind * sizeof(GLuint);
   size_t size = m_size_2 * sizeof(GLuint);
   GLuint *ptr = nullptr;
   GLuint val = 2 + (m_turn % 2);
@@ -129,33 +228,145 @@ void Board::play(size_t i, size_t j) {
   m_turn += 1;
   m_player = (m_player + 1) % 2;
 }
+// PLUS DEUX
+// +1  -2
+// +2  +1
+// -1  +2
+// -2  -1
+// x = -1 * y
+// y = x
+//
+// -1  -2
+// +2  -1
+// +1  +2
+// -2  +1
+//
+// PLUS 1
+// +1  -2
+// +2  -1
+// +2  +1
+// +1  +2
+// -1  +2
+// -2  +1
+// -2  -1
+// -1  -2
 
-size_t Board::reverse_ind_link(size_t type){
+std::array<int, 2> Board::rot90ind(size_t nb_rot, int i, int j){
+    std::array<int, 2> new_coords = {};
+    size_t save = 0;
+    for(size_t n=0 ; n<nb_rot ; ++n){
+        save = i;
+        i = -1 * j;
+        j = save;
+        std::cout << "ROT : " << i << ",  " << j << std::endl;
+    }
+    return new_coords = {i, j};
+}
+
+void Board::block_link(size_t type, size_t i, size_t j) {
+    struct Offset {
+        int di, dj, link;
+    };
+
+    static const std::vector<Offset> offsets = {
+        {0, -1, 1}, {0, -1, 2}, {0, -1, 3}, // Premier groupe (i, j-1)
+        {1, -1, 5}, {1, -1, 6}, {1, -1, 7}, // Deuxième groupe (i+1, j-1)
+        {1, 0, 6}, {1, 0, 7},               // Troisième groupe (i+1, j)
+        {2, 1, 6}                            // Dernier groupe (i+2, j+1)
+    };
+
+    rot90ind(4, 1, -2);
+
+    auto block_single_link = [&](size_t i, size_t j, size_t link) {
+        size_t ind = id_2dto1d(i, j);
+        if (!unbound(ind)) {
+            m_links[ind][link] = 9;
+            size_t nind = link_ind_1D(link, ind);
+            if (!unbound(nind)) {
+                m_links[nind][reverse_link(link)] = 9;
+            }
+        }
+    };
+
+    for (const auto& off : offsets) {
+        block_single_link(i + off.di, j + off.dj, off.link);
+    }
+}
+
+/*
+void Board::block_link(size_t type, size_t i, size_t j){
+    size_t ind, nind;
+    switch (type) {
+        case 0:
+    ind = id_2dto1d(i, j-1);//  3 lignes
+    if(!unbound(ind)) m_links[ind][1] = 9;
+    nind = link_ind_1D(1, ind);
+    if(!unbound(nind)) m_links[nind][reverse_link(1)] = 9;
+
+    if(!unbound(ind)) m_links[ind][2] = 9;
+    nind = link_ind_1D(2, ind);
+    if(!unbound(nind)) m_links[nind][reverse_link(2)] = 9;
+
+    if(!unbound(ind)) m_links[ind][3] = 9;
+    nind = link_ind_1D(3, ind);
+    if(!unbound(nind)) m_links[nind][reverse_link(3)] = 9;
+
+    ind = id_2dto1d(i+1, j-1);//  3 lignes
+    if(!unbound(ind)) m_links[ind][5] = 9;
+    nind = link_ind_1D(5, ind);
+    if(!unbound(nind)) m_links[nind][reverse_link(5)] = 9;
+
+    if(!unbound(ind)) m_links[ind][6] = 9;
+    nind = link_ind_1D(6, ind);
+    if(!unbound(nind)) m_links[nind][reverse_link(6)] = 9;
+
+    if(!unbound(ind)) m_links[ind][7] = 9;
+    nind = link_ind_1D(7, ind);
+    if(!unbound(nind)) m_links[nind][reverse_link(7)] = 9;
+
+    ind = id_2dto1d(i+1, j);//  2 lignes
+    if(!unbound(ind)) m_links[ind][6] = 9;
+    nind = link_ind_1D(6, ind);
+    if(!unbound(nind)) m_links[nind][reverse_link(6)] = 9;
+
+    if(!unbound(ind)) m_links[ind][7] = 9;
+    nind = link_ind_1D(7, ind);
+    if(!unbound(nind)) m_links[nind][reverse_link(7)] = 9;
+
+    ind = id_2dto1d(i+2, j+1);// 1 ligne
+    if(!unbound(ind)) m_links[ind][6] = 9;
+    nind = link_ind_1D(6, ind);
+    if(!unbound(nind)) m_links[nind][reverse_link(6)] = 9;
+            }
+}
+*/
+
+size_t Board::reverse_link(size_t type){
     return (type + 4) % 8;
 }
 
 void Board::add_link(size_t type, size_t i, size_t j, size_t ni, size_t nj){
     size_t ind = id_2dto1d(i, j);
-    size_t reverse = reverse_ind_link(type);
-    m_links[ind].m_link[type] = m_turn;
+    size_t reverse = reverse_link(type);
+    add_line(C::BOARD_SIZE - 1 - i, C::BOARD_SIZE - 1 - j, C::BOARD_SIZE - 1 - ni, C::BOARD_SIZE - 1 - nj);
+    m_links[ind][type] = m_player + 2;
     ind = id_2dto1d(ni, nj);
-    m_links[ind].m_link[reverse] = m_turn;
-    std::cout << "addlink : " << i << ", " << j << "  --->     " << ni << ", " << nj << std::endl;
+    m_links[ind][reverse] = m_player + 2;
+    block_link(type, i, j);
 }
 
 void Board::check_links(size_t i, size_t j){
-    std::array<size_t, 2> coords;
+    std::array<size_t, 2> coords_other;
     size_t coords_1D;
+    size_t coords;
     for(size_t n=0 ; n<8 ; ++n){ //  On test les 8 directions
-        coords = link_ind(n, i, j); // coordonnées à tester
-        coords_1D = id_2dto1d(i, j); // conversion 1D
-        std::cout << "board1 : " << m_board[coords_1D] << ",   turn : " << (m_player + 2) << std::endl;
-        std::cout << "board 2 : " << m_board[coords_1D] << ",   turn : " << (m_player + 2) << std::endl;
-        std:: cout << "IJ :    " << i << ",  " << j << std::endl;
-        std:: cout << "COORDS :    " << coords[0] << ",  " << coords[1] << std::endl;
-        if(m_board[coords_1D] != (m_player + 3)) continue; // test de pions pour link
-        if(unbound(coords[0], coords[1])) continue; // test si coordonnées valides
-        add_link(n, i, j, coords[0], coords[1]);
+        coords = id_2dto1d(i, j);
+        coords_other = link_ind(n, i, j); // coordonnées à tester
+        coords_1D = id_2dto1d(coords_other[0], coords_other[1]); // conversion 1D
+        if(m_board[coords_1D] != (m_player + 2)) continue; // test de pions pour link
+        if(m_links[coords][n] == 9) continue; // lien bloqué par un autre lien
+        if(unbound(coords_other[0], coords_other[1])) continue; // test si coordonnées valides
+        add_link(n, i, j, coords_other[0], coords_other[1]);
     }
 }
 
@@ -178,6 +389,12 @@ bool Board::unbound(size_t x, size_t y) {
   if (y >= m_size)
     return true;
   return false;
+}
+
+size_t Board::link_ind_1D(size_t type, size_t ind) {
+    std::array<size_t, 2> xy = id_1dto2d(ind);
+    std::array<size_t, 2> nxy = link_ind(type, xy[0], xy[1]);
+    return id_2dto1d(nxy[0], nxy[1]);
 }
 
 std::array<size_t, 2> Board::link_ind(size_t type, size_t x, size_t y) {

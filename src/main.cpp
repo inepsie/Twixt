@@ -40,6 +40,7 @@ void mouse_button_callback(GLFWwindow *window, int button, int action, int mods)
     coords = mouse.get_xy_ind();
     board.play(coords[0], coords[1]);
     board.print_board();
+    board.print_links();
   }
 }
 
@@ -48,10 +49,13 @@ static inline void init() {
   Board &board = Board::getInstance();
   Mouse &mouse = Mouse::getInstance();
   board.init(C::BOARD_SIZE);
-  // Map Draw Shader
-  shader_manager.loadShader("boardDraw", "../res/shaders/voxels.vert",
-                            "../res/shaders/voxels.frag",
-                            "../res/shaders/voxels.geom");
+  // Points Draw Shader
+  shader_manager.loadShader("pointsDraw", "../res/shaders/points.vert",
+                            "../res/shaders/points.frag",
+                            "../res/shaders/points.geom");
+  // Lines Draw Shader
+  shader_manager.loadShader("linesDraw", "../res/shaders/lines.vert",
+                            "../res/shaders/lines.frag");
   // Cube Repère Shader
   shader_manager.loadShader("cubeRepere", "../res/shaders/cube_repere.vert",
                             "../res/shaders/cube_repere.frag");
