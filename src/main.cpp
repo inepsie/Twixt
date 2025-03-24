@@ -39,8 +39,8 @@ void mouse_button_callback(GLFWwindow *window, int button, int action, int mods)
   if (mouse.get_clickstate()) {
     coords = mouse.get_xy_ind();
     board.play(coords[0], coords[1]);
-    board.print_board();
-    board.print_links();
+    //board.print_board();
+    //board.print_links();
   }
 }
 

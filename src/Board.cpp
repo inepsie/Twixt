@@ -73,6 +73,10 @@ void Board::print_links(){
 
 void Board::init(size_t size) {
     std::fill(m_board.begin(), m_board.end(), 1); // Remplit `m_board` avec 1
+    m_board[0] = 0;// Coins
+    m_board[C::BOARD_SIZE - 1] = 0;
+    m_board[C::BOARD_SIZE_2 - C::BOARD_SIZE] = 0;
+    m_board[C::BOARD_SIZE_2 - 1] = 0;
 
   // Points
   glGenVertexArrays(1, &m_pointVAO);
@@ -228,54 +232,36 @@ void Board::play(size_t i, size_t j) {
   m_turn += 1;
   m_player = (m_player + 1) % 2;
 }
-// PLUS DEUX
-// +1  -2
-// +2  +1
-// -1  +2
-// -2  -1
-// x = -1 * y
-// y = x
-//
-// -1  -2
-// +2  -1
-// +1  +2
-// -2  +1
-//
-// PLUS 1
-// +1  -2
-// +2  -1
-// +2  +1
-// +1  +2
-// -1  +2
-// -2  +1
-// -2  -1
-// -1  -2
 
 std::array<int, 2> Board::rot90ind(size_t nb_rot, int i, int j){
-    std::array<int, 2> new_coords = {};
-    size_t save = 0;
+    nb_rot = nb_rot % 4;
     for(size_t n=0 ; n<nb_rot ; ++n){
-        save = i;
-        i = -1 * j;
+        int save = i;
+        i = -j;
         j = save;
-        std::cout << "ROT : " << i << ",  " << j << std::endl;
     }
-    return new_coords = {i, j};
+    return {i, j};
 }
 
 void Board::block_link(size_t type, size_t i, size_t j) {
+    std::array<int, 2> ncoords = {};
+    size_t nb_rot = type / 2;
+    size_t k = 9 * (type % 2);// Pour le 2eme type d'offsets
+
     struct Offset {
         int di, dj, link;
     };
-
     static const std::vector<Offset> offsets = {
         {0, -1, 1}, {0, -1, 2}, {0, -1, 3}, // Premier groupe (i, j-1)
         {1, -1, 5}, {1, -1, 6}, {1, -1, 7}, // Deuxième groupe (i+1, j-1)
         {1, 0, 6}, {1, 0, 7},               // Troisième groupe (i+1, j)
-        {2, 1, 6}                            // Dernier groupe (i+2, j+1)
+        {2, -1, 6},                            // Dernier groupe (i+2, j+1)
+        //
+        {1, 0, 5}, {1, 0, 6}, {1, 0, 7}, // Premier groupe (i+1, j)
+        {1, -1, 3}, {1, -1, 2}, {1, -1, 1}, // Deuxième groupe (i+1, j-1)
+        {0, -1, 2}, {0, -1, 1},               // Troisième groupe (i, j+1)
+        {2, 0, 6}                            // Dernier groupe (i+2, j)
     };
-
-    rot90ind(4, 1, -2);
 
     auto block_single_link = [&](size_t i, size_t j, size_t link) {
         size_t ind = id_2dto1d(i, j);
@@ -288,58 +274,12 @@ void Board::block_link(size_t type, size_t i, size_t j) {
         }
     };
 
-    for (const auto& off : offsets) {
-        block_single_link(i + off.di, j + off.dj, off.link);
+    for (size_t n=0; n<9; ++n) {
+        ncoords = rot90ind(nb_rot, offsets[n+k].di, offsets[n+k].dj);
+        block_single_link(i + ncoords[0], j + ncoords[1],
+                          (type + offsets[n+k].link) % 8);
     }
 }
-
-/*
-void Board::block_link(size_t type, size_t i, size_t j){
-    size_t ind, nind;
-    switch (type) {
-        case 0:
-    ind = id_2dto1d(i, j-1);//  3 lignes
-    if(!unbound(ind)) m_links[ind][1] = 9;
-    nind = link_ind_1D(1, ind);
-    if(!unbound(nind)) m_links[nind][reverse_link(1)] = 9;
-
-    if(!unbound(ind)) m_links[ind][2] = 9;
-    nind = link_ind_1D(2, ind);
-    if(!unbound(nind)) m_links[nind][reverse_link(2)] = 9;
-
-    if(!unbound(ind)) m_links[ind][3] = 9;
-    nind = link_ind_1D(3, ind);
-    if(!unbound(nind)) m_links[nind][reverse_link(3)] = 9;
-
-    ind = id_2dto1d(i+1, j-1);//  3 lignes
-    if(!unbound(ind)) m_links[ind][5] = 9;
-    nind = link_ind_1D(5, ind);
-    if(!unbound(nind)) m_links[nind][reverse_link(5)] = 9;
-
-    if(!unbound(ind)) m_links[ind][6] = 9;
-    nind = link_ind_1D(6, ind);
-    if(!unbound(nind)) m_links[nind][reverse_link(6)] = 9;
-
-    if(!unbound(ind)) m_links[ind][7] = 9;
-    nind = link_ind_1D(7, ind);
-    if(!unbound(nind)) m_links[nind][reverse_link(7)] = 9;
-
-    ind = id_2dto1d(i+1, j);//  2 lignes
-    if(!unbound(ind)) m_links[ind][6] = 9;
-    nind = link_ind_1D(6, ind);
-    if(!unbound(nind)) m_links[nind][reverse_link(6)] = 9;
-
-    if(!unbound(ind)) m_links[ind][7] = 9;
-    nind = link_ind_1D(7, ind);
-    if(!unbound(nind)) m_links[nind][reverse_link(7)] = 9;
-
-    ind = id_2dto1d(i+2, j+1);// 1 ligne
-    if(!unbound(ind)) m_links[ind][6] = 9;
-    nind = link_ind_1D(6, ind);
-    if(!unbound(nind)) m_links[nind][reverse_link(6)] = 9;
-            }
-}
-*/
 
 size_t Board::reverse_link(size_t type){
     return (type + 4) % 8;
