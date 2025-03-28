@@ -91,6 +91,26 @@ void Board::init(size_t size) {
 
   init_lines();
 }
+
+void Board::add_edge_lines(){
+    /*
+    Mouse &mouse = Mouse::getInstance();
+    std::array<double, 2> pos;
+    glm::vec3 color;
+
+    color = glm::vec3(0.2, 0.2, 0.2);
+    color = glm::vec3(0.75, 0.0, 0.0);
+    // Ajouter les points
+    pos = mouse.ind_int_to_vec3(i, j);
+    m_lines.push_back(glm::vec3(pos[0], pos[1], 0.0));
+    m_linesColors.push_back(color); // Associer une couleur
+
+    pos = mouse.ind_int_to_vec3(ni, nj);
+    m_lines.push_back(glm::vec3(pos[0], pos[1], 0.0));
+    m_linesColors.push_back(color); // Même couleur pour le deuxième point
+    */
+}
+
 void Board::init_lines() {
     glGenVertexArrays(1, &m_lineVAO);
     glGenBuffers(1, &m_lineVBO);
@@ -138,6 +158,7 @@ void Board::add_line(size_t i, size_t j, size_t ni, size_t nj) {
     glBindBuffer(GL_ARRAY_BUFFER, m_colorVBO);
     glBufferData(GL_ARRAY_BUFFER, m_linesColors.size() * sizeof(glm::vec3), m_linesColors.data(), GL_DYNAMIC_DRAW);
 }
+
 void Board::draw_lines(Camera cam) {
     ShaderManager &shader_manager = ShaderManager::getInstance();
     std::shared_ptr<Shader> shader = shader_manager.getShader("linesDraw");

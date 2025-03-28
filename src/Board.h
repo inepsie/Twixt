@@ -32,6 +32,7 @@ public:
   void print_board();
   void print_links();
   void init(size_t size);
+  void add_edge_lines();
   void init_lines();
   size_t id_2dto1d(size_t i, size_t j);
   std::array<size_t, 2> id_1dto2d(size_t ind);
