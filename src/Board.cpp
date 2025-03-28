@@ -92,24 +92,6 @@ void Board::init(size_t size) {
   init_lines();
 }
 
-void Board::add_edge_lines(){
-    /*
-    Mouse &mouse = Mouse::getInstance();
-    std::array<double, 2> pos;
-    glm::vec3 color;
-
-    color = glm::vec3(0.2, 0.2, 0.2);
-    color = glm::vec3(0.75, 0.0, 0.0);
-    // Ajouter les points
-    pos = mouse.ind_int_to_vec3(i, j);
-    m_lines.push_back(glm::vec3(pos[0], pos[1], 0.0));
-    m_linesColors.push_back(color); // Associer une couleur
-
-    pos = mouse.ind_int_to_vec3(ni, nj);
-    m_lines.push_back(glm::vec3(pos[0], pos[1], 0.0));
-    m_linesColors.push_back(color); // Même couleur pour le deuxième point
-    */
-}
 
 void Board::init_lines() {
     glGenVertexArrays(1, &m_lineVAO);
@@ -132,6 +114,41 @@ void Board::init_lines() {
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
+    add_edge_lines();
+}
+
+void Board::add_edge_lines(){
+    Mouse &mouse = Mouse::getInstance();
+    std::array<double, 2> pos;
+    glm::vec3 color;
+    size_t i1, j1, i2, j2;
+    i1=0, j1=0, i2=0, j2=C::BOARD_SIZE-1;
+    color = glm::vec3(0.2, 0.2, 0.2);
+    // Ajouter les points
+    pos = mouse.ind_int_to_vec3(i1, j1);
+    m_lines.push_back(glm::vec3(pos[0] + C::NORM_QUAD_SIZE/2, pos[1], 0.0));
+    m_linesColors.push_back(color); // Associer une couleur
+
+    pos = mouse.ind_int_to_vec3(i2, j2);
+    m_lines.push_back(glm::vec3(pos[0] + C::NORM_QUAD_SIZE/2, pos[1], 0.0));
+    m_linesColors.push_back(color); // Même couleur pour le deuxième point
+    i1=C::BOARD_SIZE-1, i2=C::BOARD_SIZE-1;
+    pos = mouse.ind_int_to_vec3(i1, j1);
+    m_lines.push_back(glm::vec3(pos[0] - C::NORM_QUAD_SIZE/2, pos[1], 0.0));
+    m_linesColors.push_back(color); // Associer une couleur
+
+    pos = mouse.ind_int_to_vec3(i2, j2);
+    m_lines.push_back(glm::vec3(pos[0] - C::NORM_QUAD_SIZE/2, pos[1], 0.0));
+    m_linesColors.push_back(color); // Même couleur pour le deuxième point
+    //color = glm::vec3(0.75, 0.0, 0.0);
+    //
+    // Mettre à jour le VBO des positions
+    glBindBuffer(GL_ARRAY_BUFFER, m_lineVBO);
+    glBufferData(GL_ARRAY_BUFFER, m_lines.size() * sizeof(glm::vec3), m_lines.data(), GL_DYNAMIC_DRAW);
+
+    // Mettre à jour le VBO des couleurs
+    glBindBuffer(GL_ARRAY_BUFFER, m_colorVBO);
+    glBufferData(GL_ARRAY_BUFFER, m_linesColors.size() * sizeof(glm::vec3), m_linesColors.data(), GL_DYNAMIC_DRAW);
 }
 
 void Board::add_line(size_t i, size_t j, size_t ni, size_t nj) {
