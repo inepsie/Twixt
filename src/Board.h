@@ -30,39 +30,40 @@ public:
   static void
   reset(); // Permet de supprimer l'instance et d'en créer une nouvelle
   void print_board();
-void print_links();
+  void print_links();
   void init(size_t size);
-void init_lines();
+  void init_lines();
   size_t id_2dto1d(size_t i, size_t j);
   std::array<size_t, 2> id_1dto2d(size_t ind);
   void draw(Camera cam);
   void draw_lines(Camera cam);
-void add_line(size_t i, size_t j, size_t ni, size_t nj);
+  void add_line(size_t i, size_t j, size_t ni, size_t nj);
   void draw_points(Camera cam);
   void reset(GLuint valeur);
-void play(size_t i, size_t j);
-std::array<int, 2> rot90ind(size_t nb_rot, int i, int j);
-void block_link(size_t type, size_t i, size_t j);
+  void play(size_t i, size_t j);
+  std::array<int, 2> rot90ind(size_t nb_rot, int i, int j);
+  void block_link(size_t type, size_t i, size_t j);
   void check_links(size_t i, size_t j);
-void add_link(size_t type, size_t i, size_t j, size_t ni, size_t nj);
+  void add_link(size_t type, size_t i, size_t j, size_t ni, size_t nj);
   size_t reverse_link(size_t type);
   bool unbound(size_t ind);
   bool unbound(size_t i, size_t j);
 
-size_t link_ind_1D(size_t type, size_t ind);
+  size_t link_ind_1D(size_t type, size_t ind);
   std::array<size_t, 2> link_ind(size_t type, size_t i, size_t j);
 
 private:
   size_t m_size = C::BOARD_SIZE;
   size_t m_size_2 = C::BOARD_SIZE_2;
-        std::array<GLuint, C::BOARD_SIZE_2> m_board = {}; // contient l'état des pions, pas les links
-        std::array<std::array<GLuint, 8>, C::BOARD_SIZE_2> m_links = {}; // contient l'état des connexions
+  std::array<GLuint, C::BOARD_SIZE_2> m_board =
+      {}; // contient l'état des pions, pas les links
+  std::array<std::array<GLuint, 8>, C::BOARD_SIZE_2> m_links =
+      {}; // contient l'état des connexions
   size_t m_turn = 0;
   size_t m_player = 0;
   GLuint m_pointVAO, m_buffer, m_lineVBO, m_lineVAO, m_colorVBO;
-  std::vector<glm::vec3> m_lines; // Liste des connexions
-        std::vector<glm::vec3> m_linesColors; // Stocke les couleurs des lignes
-
+  std::vector<glm::vec3> m_lines;       // Liste des connexions
+  std::vector<glm::vec3> m_linesColors; // Stocke les couleurs des lignes
 };
 
 #endif

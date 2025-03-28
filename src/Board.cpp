@@ -217,6 +217,8 @@ void Board::play(size_t i, size_t j) {
     return;
   if (m_board[ind] != 1)
     return;
+  if ((i==0 || i==(C::BOARD_SIZE-1)) && (m_turn%2)==0) return;
+  if ((j==0 || j==(C::BOARD_SIZE-1)) && (m_turn%2)==1) return;
   m_board[ind] = val;
 
   glBindBuffer(GL_ARRAY_BUFFER, m_buffer);

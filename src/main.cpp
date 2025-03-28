@@ -100,7 +100,7 @@ int main() {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-  glfwWindowHint(GLFW_SAMPLES, 4);
+  glfwWindowHint(GLFW_SAMPLES, 32);
   glEnable(GL_MULTISAMPLE);
   GLFWwindow *window = glfwCreateWindow(C::WINDOW_WIDTH, C::WINDOW_HEIGHT,
                                         "Twixt - Explo", NULL, NULL);
