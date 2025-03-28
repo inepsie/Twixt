@@ -118,13 +118,14 @@ void Board::init_lines() {
 }
 
 void Board::add_edge_lines(){
+  //TODO FACTORISER
     Mouse &mouse = Mouse::getInstance();
     std::array<double, 2> pos;
     glm::vec3 color;
     size_t i1, j1, i2, j2;
+    // Ajouter les points
     i1=0, j1=0, i2=0, j2=C::BOARD_SIZE-1;
     color = glm::vec3(0.2, 0.2, 0.2);
-    // Ajouter les points
     pos = mouse.ind_int_to_vec3(i1, j1);
     pos[1] += C::NORM_QUAD_SIZE * 0.75;
     m_lines.push_back(glm::vec3(pos[0] + C::NORM_QUAD_SIZE/2, pos[1], 0.0));
@@ -145,8 +146,31 @@ void Board::add_edge_lines(){
     pos[1] -= C::NORM_QUAD_SIZE * 0.75;
     m_lines.push_back(glm::vec3(pos[0] - C::NORM_QUAD_SIZE/2, pos[1], 0.0));
     m_linesColors.push_back(color); // Même couleur pour le deuxième point
-    //color = glm::vec3(0.75, 0.0, 0.0);
-    //
+
+    // Ajouter les points
+    i1=0, j1=0, i2=C::BOARD_SIZE-1, j2=0;
+    color = glm::vec3(0.75, 0.0, 0.0);
+    pos = mouse.ind_int_to_vec3(i1, j1);
+    pos[0] += C::NORM_QUAD_SIZE * 0.75;
+    m_lines.push_back(glm::vec3(pos[0], pos[1] + C::NORM_QUAD_SIZE/2, 0.0));
+    m_linesColors.push_back(color); // Associer une couleur
+
+    pos = mouse.ind_int_to_vec3(i2, j2);
+    pos[0] -= C::NORM_QUAD_SIZE * 0.75;
+    m_lines.push_back(glm::vec3(pos[0], pos[1] + C::NORM_QUAD_SIZE/2, 0.0));
+    m_linesColors.push_back(color); // Même couleur pour le deuxième point
+    j1=C::BOARD_SIZE-1, j2=C::BOARD_SIZE-1;
+
+    pos = mouse.ind_int_to_vec3(i1, j1);
+    pos[0] += C::NORM_QUAD_SIZE * 0.75;
+    m_lines.push_back(glm::vec3(pos[0], pos[1] - C::NORM_QUAD_SIZE/2, 0.0));
+    m_linesColors.push_back(color); // Associer une couleur
+
+    pos = mouse.ind_int_to_vec3(i2, j2);
+    pos[0] -= C::NORM_QUAD_SIZE * 0.75;
+    m_lines.push_back(glm::vec3(pos[0], pos[1] - C::NORM_QUAD_SIZE/2, 0.0));
+    m_linesColors.push_back(color); // Même couleur pour le deuxième point
+
     // Mettre à jour le VBO des positions
     glBindBuffer(GL_ARRAY_BUFFER, m_lineVBO);
     glBufferData(GL_ARRAY_BUFFER, m_lines.size() * sizeof(glm::vec3), m_lines.data(), GL_DYNAMIC_DRAW);
@@ -249,6 +273,38 @@ void Board::reset(GLuint valeur) {
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
+/*
+void Board::win(){
+  if(m_)
+}
+*/
+
+void Board::add_win_pawn(size_t i, size_t j){
+  if((m_player)==0 && (j!=0 && j!=C::BOARD_SIZE-1))return;
+  if((m_player)==1 && (i!=0 && i!=C::BOARD_SIZE-1))return;
+  if((m_player)==0 && j==0) m_top.push_back(i);
+  if((m_player)==0 && j!=0) m_bot.push_back(i);
+  if((m_player)==1 && i==0) m_left.push_back(j);
+  if((m_player)==1 && i!=0) m_right.push_back(j);
+}
+
+void Board::print_win_pawn(){
+  std::cout << "------------------------------" << std::endl;
+  std::cout << "WIN PAWN : " << std::endl;
+  for(size_t i=0 ; i<m_top.size() ; ++i){
+    std::cout << "RED - top " << m_top[i] << std::endl;
+  }
+  for(size_t i=0 ; i<m_bot.size() ; ++i){
+    std::cout << "RED - bot " << m_bot[i] << std::endl;
+  }
+  for(size_t i=0 ; i<m_left.size() ; ++i){
+    std::cout << "BLACK - left " << m_left[i] << std::endl;
+  }
+  for(size_t i=0 ; i<m_right.size() ; ++i){
+    std::cout << "BLACK - right " << m_right[i] << std::endl;
+  }
+}
+
 void Board::play(size_t i, size_t j) {
   size_t ind = id_2dto1d(i, j);
   size_t screen_ind = id_2dto1d(C::BOARD_SIZE - 1 - i, C::BOARD_SIZE - 1 - j);
@@ -256,13 +312,15 @@ void Board::play(size_t i, size_t j) {
   size_t size = m_size_2 * sizeof(GLuint);
   GLuint *ptr = nullptr;
   GLuint val = 2 + (m_turn % 2);
-  if (unbound(i, j))
+  if (unbound(i, j)) // En dehors du board
     return;
-  if (m_board[ind] != 1)
+  if (m_board[ind] != 1) // Deja pris
     return;
-  if ((i==0 || i==(C::BOARD_SIZE-1)) && (m_turn%2)==0) return;
-  if ((j==0 || j==(C::BOARD_SIZE-1)) && (m_turn%2)==1) return;
+  if ((i==0 || i==(C::BOARD_SIZE-1)) && (m_turn%2)==0) return; // Bord de l'autre joueur
+  if ((j==0 || j==(C::BOARD_SIZE-1)) && (m_turn%2)==1) return; // Bord de l'autre joueur
   m_board[ind] = val;
+  add_win_pawn(i, j);
+  print_win_pawn();
 
   glBindBuffer(GL_ARRAY_BUFFER, m_buffer);
   ptr = (GLuint *)glMapBufferRange(GL_ARRAY_BUFFER, offset, sizeof(GLuint),

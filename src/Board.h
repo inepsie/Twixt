@@ -41,6 +41,8 @@ public:
   void add_line(size_t i, size_t j, size_t ni, size_t nj);
   void draw_points(Camera cam);
   void reset(GLuint valeur);
+  void add_win_pawn(size_t i, size_t j);
+  void print_win_pawn();
   void play(size_t i, size_t j);
   std::array<int, 2> rot90ind(size_t nb_rot, int i, int j);
   void block_link(size_t type, size_t i, size_t j);
@@ -65,6 +67,10 @@ private:
   GLuint m_pointVAO, m_buffer, m_lineVBO, m_lineVAO, m_colorVBO;
   std::vector<glm::vec3> m_lines;       // Liste des connexions
   std::vector<glm::vec3> m_linesColors; // Stocke les couleurs des lignes
+  std::vector<GLuint> m_top;            //
+  std::vector<GLuint> m_bot;            //
+  std::vector<GLuint> m_left;           //
+  std::vector<GLuint> m_right;          //
 };
 
 #endif
