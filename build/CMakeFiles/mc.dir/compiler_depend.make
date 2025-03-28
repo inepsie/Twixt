@@ -468,7 +468,14 @@ CMakeFiles/mc.dir/src/Board.cpp.o: ../src/Board.cpp \
   /usr/include/c++/11/bits/random.tcc \
   /usr/include/c++/11/numeric \
   /usr/include/c++/11/bits/stl_numeric.h \
-  /usr/include/c++/11/pstl/glue_numeric_defs.h
+  /usr/include/c++/11/pstl/glue_numeric_defs.h \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/11/functional \
+  /usr/include/c++/11/bits/std_function.h
 
 CMakeFiles/mc.dir/src/Camera.cpp.o: ../src/Camera.cpp \
   /usr/include/stdc-predef.h \
@@ -4235,8 +4242,6 @@ CMakeFiles/mc.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/math.h
 
 
-/usr/include/c++/11/bits/stl_algo.h:
-
 /usr/include/c++/11/ctime:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h:
@@ -4256,6 +4261,10 @@ CMakeFiles/mc.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/Link.cpp:
 
 ../src/Cube.h:
+
+/usr/include/c++/11/bits/stl_algo.h:
+
+/usr/include/c++/11/algorithm:
 
 /usr/include/c++/11/bits/stl_numeric.h:
 
@@ -5032,6 +5041,8 @@ CMakeFiles/mc.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/ios:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
+
+/usr/include/c++/11/pstl/glue_algorithm_defs.h:
 
 /usr/include/glm/ext/matrix_float3x2_precision.hpp:
 

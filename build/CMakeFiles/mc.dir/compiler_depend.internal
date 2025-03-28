@@ -470,6 +470,13 @@ CMakeFiles/mc.dir/src/Board.cpp.o
  /usr/include/c++/11/numeric
  /usr/include/c++/11/bits/stl_numeric.h
  /usr/include/c++/11/pstl/glue_numeric_defs.h
+ /usr/include/c++/11/algorithm
+ /usr/include/c++/11/bits/stl_algo.h
+ /usr/include/c++/11/bits/algorithmfwd.h
+ /usr/include/c++/11/bits/stl_heap.h
+ /usr/include/c++/11/pstl/glue_algorithm_defs.h
+ /usr/include/c++/11/functional
+ /usr/include/c++/11/bits/std_function.h
 
 CMakeFiles/mc.dir/src/Camera.cpp.o
  /home/e20230004281/Documents/2m1/explo/Twixt/src/Camera.cpp

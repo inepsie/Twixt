@@ -41,6 +41,7 @@ public:
   void add_line(size_t i, size_t j, size_t ni, size_t nj);
   void draw_points(Camera cam);
   void reset(GLuint valeur);
+  int win();
   void add_win_pawn(size_t i, size_t j);
   void print_win_pawn();
   void play(size_t i, size_t j);

@@ -10,6 +10,7 @@
 #include <glm/fwd.hpp>
 #include <memory>
 #include <random>
+#include <algorithm>
 
 // Définition du `unique_ptr`
 std::unique_ptr<Board> Board::board = Board::createBoard();
@@ -273,11 +274,44 @@ void Board::reset(GLuint valeur) {
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-/*
-void Board::win(){
-  if(m_)
+int Board::win() {
+  size_t type = 0;
+  std::array<size_t, 2> ind2D;
+  size_t ind;
+  std::vector<std::array<size_t, 2>> visited;
+  std::vector<std::array<size_t, 2>> to_visit;
+  if (m_player == 0 && (m_top.size() < 1 || m_bot.size() < 1))
+    return 0;
+  if (m_player == 1 && (m_left.size() < 1 || m_right.size() < 1))
+    return 0;
+  std::cout << "TEST WIN" << std::endl;
+  // propagation à partir des bords + sauvegarde des indices pour ne pas boucler
+  ind2D[0] = 0, ind2D[1] = 0;
+  for (size_t i = 0; i < m_top.size(); ++i) {
+    to_visit.push_back({m_top[i], 0});
+  }
+  //while(to_visite.size()>0){
+  for (size_t i = 0; i < m_top.size(); ++i) {
+    if(ind2D[0] = C::BOARD_SIZE -1) return 1;
+    ind2D[0] = m_top[i];
+    to_visit.push_back(ind2D);
+    /*
+    if (std::find(visited.begin(), visited.end(), ind) != visited.end()) {
+      continue;
+    }
+    */
+    for(size_t n=0 ; n<8 ; ++n){
+    std::cout << "BOUCLE" << std::endl;
+      ind = id_2dto1d(ind2D[0], ind2D[1]);// Conversion 2D to 1D
+      type = m_links[ind][n];// On va chercher le type de lien
+      to_visit.push_back(link_ind(type, ind2D[0], ind2D[1])); // On push la nouvelle coordonnée trouver
+    }
+    for(size_t n=0 ; n<to_visit.size() ; ++n){
+      std::cout << "to visit : " << to_visit[n][0] << ", " << to_visit[n][1] << std::endl;
+    }
+    visited.push_back(ind2D);
+  }
 }
-*/
 
 void Board::add_win_pawn(size_t i, size_t j){
   if((m_player)==0 && (j!=0 && j!=C::BOARD_SIZE-1))return;
@@ -321,6 +355,7 @@ void Board::play(size_t i, size_t j) {
   m_board[ind] = val;
   add_win_pawn(i, j);
   print_win_pawn();
+  std::cout << "WIN ?  -> " << win() << std::endl;
 
   glBindBuffer(GL_ARRAY_BUFFER, m_buffer);
   ptr = (GLuint *)glMapBufferRange(GL_ARRAY_BUFFER, offset, sizeof(GLuint),
