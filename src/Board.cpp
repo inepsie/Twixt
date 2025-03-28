@@ -126,18 +126,23 @@ void Board::add_edge_lines(){
     color = glm::vec3(0.2, 0.2, 0.2);
     // Ajouter les points
     pos = mouse.ind_int_to_vec3(i1, j1);
+    pos[1] += C::NORM_QUAD_SIZE * 0.75;
     m_lines.push_back(glm::vec3(pos[0] + C::NORM_QUAD_SIZE/2, pos[1], 0.0));
     m_linesColors.push_back(color); // Associer une couleur
 
     pos = mouse.ind_int_to_vec3(i2, j2);
+    pos[1] -= C::NORM_QUAD_SIZE * 0.75;
     m_lines.push_back(glm::vec3(pos[0] + C::NORM_QUAD_SIZE/2, pos[1], 0.0));
     m_linesColors.push_back(color); // Même couleur pour le deuxième point
     i1=C::BOARD_SIZE-1, i2=C::BOARD_SIZE-1;
+
     pos = mouse.ind_int_to_vec3(i1, j1);
+    pos[1] += C::NORM_QUAD_SIZE * 0.75;
     m_lines.push_back(glm::vec3(pos[0] - C::NORM_QUAD_SIZE/2, pos[1], 0.0));
     m_linesColors.push_back(color); // Associer une couleur
 
     pos = mouse.ind_int_to_vec3(i2, j2);
+    pos[1] -= C::NORM_QUAD_SIZE * 0.75;
     m_lines.push_back(glm::vec3(pos[0] - C::NORM_QUAD_SIZE/2, pos[1], 0.0));
     m_linesColors.push_back(color); // Même couleur pour le deuxième point
     //color = glm::vec3(0.75, 0.0, 0.0);
