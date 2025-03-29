@@ -22,6 +22,8 @@
 #include <vector>
 #include <array>   // Pour std::array
 #include <cstddef> // Pour size_t
+#include <random>
+#include <thread>
 
 namespace C = Constants;
 
@@ -91,6 +93,30 @@ static inline void camera_settings(Camera &cam) {
              glm::vec3(transl.x, transl.y, 0), glm::vec3(0, 1, 0));
 }
 
+size_t random_size_t(size_t a, size_t N) {
+    static std::random_device rd;  // Génère une vraie entropie
+    static std::mt19937 gen(rd()); // Mersenne Twister RNG
+    std::uniform_int_distribution<size_t> dist(a, N); // Distribution uniforme entre 0 et N
+    return dist(gen);
+}
+
+static inline void auto_random_play(){
+    Board &board = Board::getInstance();
+    size_t imin, imax, jmin, jmax;
+    imin = 1; imax = C::BOARD_SIZE-2; jmin = 0; jmax = C::BOARD_SIZE-1;
+    if(board.get_player()==1){
+        imin = jmin;
+        imax = jmax;
+        jmin = 1;
+        jmax = C::BOARD_SIZE-2;
+    }
+    size_t i = random_size_t(imin, imax);
+    size_t j = random_size_t(jmin, jmax);
+
+    if(!board.ended) board.play(i, j);
+    else std::cout << "ENDED" << std::endl;
+}
+
 int main() {
   Camera cam = Camera(glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
   // GLFW
@@ -130,6 +156,7 @@ int main() {
          glfwWindowShouldClose(window) == 0) {
     auto currentTime = std::chrono::high_resolution_clock::now();
     float dt = std::chrono::duration<float>(currentTime - lastTime).count();
+    auto_random_play();
     draw(cam);
     glfwSwapBuffers(window);
     glfwPollEvents();

@@ -275,38 +275,41 @@ void Board::reset(GLuint valeur) {
 }
 
 int Board::win() {
+    int w = 0;
   size_t type = 0;
   std::array<size_t, 2> ind2D;
+  std::array<size_t, 2> new_ind;
   size_t ind;
   std::vector<std::array<size_t, 2>> visited;
   std::vector<std::array<size_t, 2>> to_visit;
-  if (m_player == 0 && (m_top.size() < 1 || m_bot.size() < 1))
-    return 0;
-  if (m_player == 1 && (m_left.size() < 1 || m_right.size() < 1))
-    return 0;
-  std::cout << "TEST WIN" << std::endl;
-  // propagation à partir des bords + sauvegarde des indices pour ne pas boucler
+  if (m_player == 0 && (m_top.size() < 1 || m_bot.size() < 1)) return 0;//Pas de pions aux deux bords joueur 0
+  if (m_player == 1 && (m_left.size() < 1 || m_right.size() < 1)) return 0;//Pas de pions aux deux bords joueur 1
+  //std::cout << "TEST WIN" << std::endl;
+  // On push tout les pions du top
   for (size_t i = 0; i < m_top.size(); ++i) {
     to_visit.push_back({m_top[i], 0});
   }
   while(!to_visit.empty()){
     ind2D = to_visit.back();
+    visited.push_back(ind2D);
+    //std::cout << "POP ind2D = " << ind2D[0] << ",  " << ind2D[1] << std::endl;
     to_visit.pop_back();
-    if(ind2D[0] = 0){
-      assert(1==0);
-      return 1;
+    if(ind2D[1] == C::BOARD_SIZE-1){
+      ended = 1;
+      break;
     }
-    if (std::find(visited.begin(), visited.end(), ind2D) != visited.end()) continue;
     for(size_t n=0 ; n<8 ; ++n){
-    std::cout << "BOUCLE" << std::endl;
       ind = id_2dto1d(ind2D[0], ind2D[1]);// Conversion 2D to 1D
       type = m_links[ind][n];// On va chercher le type de lien
-      if(type!=0)to_visit.push_back(link_ind(type, ind2D[0], ind2D[1])); // On push la nouvelle coordonnée trouver
+      if(type>0 && type<9){
+          //std::cout << "PUSHPUSH" << std::endl;
+          new_ind = link_ind(n, ind2D[0], ind2D[1]);
+          if(std::find(visited.begin(), visited.end(), new_ind) == visited.end()){
+              //std::cout << "BUT" << std::endl;
+              to_visit.push_back(new_ind); // On push la nouvelle coordonnée trouver
+          }
+      }
     }
-    for(size_t n=0 ; n<to_visit.size() ; ++n){
-      std::cout << "to visit : " << to_visit[n][0] << ", " << to_visit[n][1] << std::endl;
-    }
-    visited.push_back(ind2D);
   }
   return 0;
 }
@@ -318,6 +321,7 @@ void Board::add_win_pawn(size_t i, size_t j){
   if((m_player)==0 && j!=0) m_bot.push_back(i);
   if((m_player)==1 && i==0) m_left.push_back(j);
   if((m_player)==1 && i!=0) m_right.push_back(j);
+  std::cout << "add_win_pawn(), ij = " << i << ", " << j << std::endl;
 }
 
 void Board::print_win_pawn(){
@@ -351,9 +355,6 @@ void Board::play(size_t i, size_t j) {
   if ((i==0 || i==(C::BOARD_SIZE-1)) && (m_turn%2)==0) return; // Bord de l'autre joueur
   if ((j==0 || j==(C::BOARD_SIZE-1)) && (m_turn%2)==1) return; // Bord de l'autre joueur
   m_board[ind] = val;
-  add_win_pawn(i, j);
-  print_win_pawn();
-  std::cout << "WIN ?  -> " << win() << std::endl;
 
   glBindBuffer(GL_ARRAY_BUFFER, m_buffer);
   ptr = (GLuint *)glMapBufferRange(GL_ARRAY_BUFFER, offset, sizeof(GLuint),
@@ -365,6 +366,10 @@ void Board::play(size_t i, size_t j) {
   }
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   check_links(i, j);
+
+  add_win_pawn(i, j);
+  //print_win_pawn();
+  win();
   m_turn += 1;
   m_player = (m_player + 1) % 2;
 }
@@ -473,6 +478,9 @@ size_t Board::link_ind_1D(size_t type, size_t ind) {
     return id_2dto1d(nxy[0], nxy[1]);
 }
 
+size_t Board::get_player(){
+    return m_player;
+}
 std::array<size_t, 2> Board::link_ind(size_t type, size_t x, size_t y) {
   std::array<size_t, 2> coords;
   switch (type) {

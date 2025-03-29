@@ -52,7 +52,8 @@ public:
   size_t reverse_link(size_t type);
   bool unbound(size_t ind);
   bool unbound(size_t i, size_t j);
-
+        size_t get_player();
+        bool ended = 0;
   size_t link_ind_1D(size_t type, size_t ind);
   std::array<size_t, 2> link_ind(size_t type, size_t i, size_t j);
 
