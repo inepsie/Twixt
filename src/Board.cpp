@@ -286,31 +286,29 @@ int Board::win() {
     return 0;
   std::cout << "TEST WIN" << std::endl;
   // propagation à partir des bords + sauvegarde des indices pour ne pas boucler
-  ind2D[0] = 0, ind2D[1] = 0;
   for (size_t i = 0; i < m_top.size(); ++i) {
     to_visit.push_back({m_top[i], 0});
   }
-  //while(to_visite.size()>0){
-  for (size_t i = 0; i < m_top.size(); ++i) {
-    if(ind2D[0] = C::BOARD_SIZE -1) return 1;
-    ind2D[0] = m_top[i];
-    to_visit.push_back(ind2D);
-    /*
-    if (std::find(visited.begin(), visited.end(), ind) != visited.end()) {
-      continue;
+  while(!to_visit.empty()){
+    ind2D = to_visit.back();
+    to_visit.pop_back();
+    if(ind2D[0] = 0){
+      assert(1==0);
+      return 1;
     }
-    */
+    if (std::find(visited.begin(), visited.end(), ind2D) != visited.end()) continue;
     for(size_t n=0 ; n<8 ; ++n){
     std::cout << "BOUCLE" << std::endl;
       ind = id_2dto1d(ind2D[0], ind2D[1]);// Conversion 2D to 1D
       type = m_links[ind][n];// On va chercher le type de lien
-      to_visit.push_back(link_ind(type, ind2D[0], ind2D[1])); // On push la nouvelle coordonnée trouver
+      if(type!=0)to_visit.push_back(link_ind(type, ind2D[0], ind2D[1])); // On push la nouvelle coordonnée trouver
     }
     for(size_t n=0 ; n<to_visit.size() ; ++n){
       std::cout << "to visit : " << to_visit[n][0] << ", " << to_visit[n][1] << std::endl;
     }
     visited.push_back(ind2D);
   }
+  return 0;
 }
 
 void Board::add_win_pawn(size_t i, size_t j){
