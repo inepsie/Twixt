@@ -1,29 +1,28 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/theo/m1/explo/Twixt/src/Board.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/Board.cpp.o"
-  "/home/theo/m1/explo/Twixt/src/Camera.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/Camera.cpp.o"
-  "/home/theo/m1/explo/Twixt/src/Cube.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/Cube.cpp.o"
-  "/home/theo/m1/explo/Twixt/src/Link.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/Link.cpp.o"
-  "/home/theo/m1/explo/Twixt/src/Mouse.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/Mouse.cpp.o"
-  "/home/theo/m1/explo/Twixt/src/Noise.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/Noise.cpp.o"
-  "/home/theo/m1/explo/Twixt/src/Quad.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/Quad.cpp.o"
-  "/home/theo/m1/explo/Twixt/src/Shader.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/Shader.cpp.o"
-  "/home/theo/m1/explo/Twixt/src/ShaderManager.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/ShaderManager.cpp.o"
-  "/home/theo/m1/explo/Twixt/src/Texture.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/Texture.cpp.o"
-  "/home/theo/m1/explo/Twixt/src/main.cpp" "/home/theo/m1/explo/Twixt/build/CMakeFiles/mc.dir/src/main.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
   )
 
-# Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/Board.cpp" "CMakeFiles/mc.dir/src/Board.cpp.o" "gcc" "CMakeFiles/mc.dir/src/Board.cpp.o.d"
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/Camera.cpp" "CMakeFiles/mc.dir/src/Camera.cpp.o" "gcc" "CMakeFiles/mc.dir/src/Camera.cpp.o.d"
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/Cube.cpp" "CMakeFiles/mc.dir/src/Cube.cpp.o" "gcc" "CMakeFiles/mc.dir/src/Cube.cpp.o.d"
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/Link.cpp" "CMakeFiles/mc.dir/src/Link.cpp.o" "gcc" "CMakeFiles/mc.dir/src/Link.cpp.o.d"
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/Mouse.cpp" "CMakeFiles/mc.dir/src/Mouse.cpp.o" "gcc" "CMakeFiles/mc.dir/src/Mouse.cpp.o.d"
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/Noise.cpp" "CMakeFiles/mc.dir/src/Noise.cpp.o" "gcc" "CMakeFiles/mc.dir/src/Noise.cpp.o.d"
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/Quad.cpp" "CMakeFiles/mc.dir/src/Quad.cpp.o" "gcc" "CMakeFiles/mc.dir/src/Quad.cpp.o.d"
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/Shader.cpp" "CMakeFiles/mc.dir/src/Shader.cpp.o" "gcc" "CMakeFiles/mc.dir/src/Shader.cpp.o.d"
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/ShaderManager.cpp" "CMakeFiles/mc.dir/src/ShaderManager.cpp.o" "gcc" "CMakeFiles/mc.dir/src/ShaderManager.cpp.o.d"
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/Texture.cpp" "CMakeFiles/mc.dir/src/Texture.cpp.o" "gcc" "CMakeFiles/mc.dir/src/Texture.cpp.o.d"
+  "/home/tmontaigu/Documents/2m1/explo/Twixt/src/main.cpp" "CMakeFiles/mc.dir/src/main.cpp.o" "gcc" "CMakeFiles/mc.dir/src/main.cpp.o.d"
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

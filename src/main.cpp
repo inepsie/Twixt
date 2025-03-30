@@ -114,7 +114,7 @@ static inline void auto_random_play(){
     size_t j = random_size_t(jmin, jmax);
 
     if(!board.ended) board.play(i, j);
-    else std::cout << "ENDED" << std::endl;
+    else std::cout << "Victoire joueur " << board.ended - 1 << std::endl;
 }
 
 int main() {

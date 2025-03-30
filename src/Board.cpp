@@ -275,7 +275,6 @@ void Board::reset(GLuint valeur) {
 }
 
 int Board::win() {
-    int w = 0;
   size_t type = 0;
   std::array<size_t, 2> ind2D;
   std::array<size_t, 2> new_ind;
@@ -284,28 +283,37 @@ int Board::win() {
   std::vector<std::array<size_t, 2>> to_visit;
   if (m_player == 0 && (m_top.size() < 1 || m_bot.size() < 1)) return 0;//Pas de pions aux deux bords joueur 0
   if (m_player == 1 && (m_left.size() < 1 || m_right.size() < 1)) return 0;//Pas de pions aux deux bords joueur 1
-  //std::cout << "TEST WIN" << std::endl;
   // On push tout les pions du top
-  for (size_t i = 0; i < m_top.size(); ++i) {
-    to_visit.push_back({m_top[i], 0});
+  if(m_player==0){
+    for (size_t i = 0; i < m_top.size(); ++i) {
+      to_visit.push_back({m_top[i], 0});
+    }
   }
-  while(!to_visit.empty()){
+  else{
+    for (size_t i = 0; i < m_left.size(); ++i) {
+      to_visit.push_back({m_left[i], 0});
+    }
+  }
+  while (!to_visit.empty()) {
     ind2D = to_visit.back();
     visited.push_back(ind2D);
-    //std::cout << "POP ind2D = " << ind2D[0] << ",  " << ind2D[1] << std::endl;
     to_visit.pop_back();
-    if(ind2D[1] == C::BOARD_SIZE-1){
+    if((ind2D[1] == C::BOARD_SIZE-1) && (m_player==0)){
       ended = 1;
-      break;
+      return 1;
+    }
+    else if((ind2D[0] == C::BOARD_SIZE-1) && (m_player==1)){
+      std::cout << "joueur noir" << std::endl;
+      assert(0);
+      ended = 2;
+      return 2;
     }
     for(size_t n=0 ; n<8 ; ++n){
       ind = id_2dto1d(ind2D[0], ind2D[1]);// Conversion 2D to 1D
       type = m_links[ind][n];// On va chercher le type de lien
       if(type>0 && type<9){
-          //std::cout << "PUSHPUSH" << std::endl;
           new_ind = link_ind(n, ind2D[0], ind2D[1]);
           if(std::find(visited.begin(), visited.end(), new_ind) == visited.end()){
-              //std::cout << "BUT" << std::endl;
               to_visit.push_back(new_ind); // On push la nouvelle coordonnée trouver
           }
       }
