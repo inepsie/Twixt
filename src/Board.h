@@ -58,6 +58,8 @@ public:
   std::array<size_t, 2> link_ind(size_t type, size_t i, size_t j);
 
 private:
+        std::array<GLuint, C::BOARD_SIZE_2> board = {};
+        /////////////////////////////////////////
   size_t m_size = C::BOARD_SIZE;
   size_t m_size_2 = C::BOARD_SIZE_2;
   std::array<GLuint, C::BOARD_SIZE_2> m_board =
