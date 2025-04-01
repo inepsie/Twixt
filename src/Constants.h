@@ -5,7 +5,7 @@
 #include <GL/glew.h>
 
 namespace Constants {
-    constexpr int BOARD_SIZE = 12;
+    constexpr int BOARD_SIZE = 10;
     constexpr int BOARD_SIZE_2 = BOARD_SIZE * BOARD_SIZE;
     constexpr int WINDOW_HEIGHT = 900;
     constexpr int WINDOW_WIDTH = WINDOW_HEIGHT;

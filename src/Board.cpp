@@ -291,7 +291,7 @@ int Board::win() {
   }
   else{
     for (size_t i = 0; i < m_left.size(); ++i) {
-      to_visit.push_back({m_left[i], 0});
+        to_visit.push_back({0, m_left[i]});
     }
   }
   while (!to_visit.empty()) {
@@ -303,8 +303,6 @@ int Board::win() {
       return 1;
     }
     else if((ind2D[0] == C::BOARD_SIZE-1) && (m_player==1)){
-      std::cout << "joueur noir" << std::endl;
-      assert(0);
       ended = 2;
       return 2;
     }
