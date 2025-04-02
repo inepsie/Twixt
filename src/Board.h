@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "Constants.h"
 #include "Link.h"
+#include "ChunkKey.h"
 #include <cstddef> // Pour size_t
 #include <fstream>
 #include <iostream>
@@ -10,6 +11,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 #define GLEW_STATIC
 #include "GL/glew.h"
@@ -31,7 +33,9 @@ public:
   reset(); // Permet de supprimer l'instance et d'en créer une nouvelle
   void print_board();
   void print_links();
-  void init(size_t size);
+void remove_play(size_t i, size_t j);
+void init_plays();
+  void init();
   void add_edge_lines();
   void init_lines();
   size_t id_2dto1d(size_t i, size_t j);
@@ -58,7 +62,8 @@ public:
   std::array<size_t, 2> link_ind(size_t type, size_t i, size_t j);
 
 private:
-        std::array<GLuint, C::BOARD_SIZE_2> board = {};
+        //std::array<GLuint, C::BOARD_SIZE_2> board = {};
+  std::unordered_map<ChunkKey, std::array<size_t, 2>> m_plays;
         /////////////////////////////////////////
   size_t m_size = C::BOARD_SIZE;
   size_t m_size_2 = C::BOARD_SIZE_2;

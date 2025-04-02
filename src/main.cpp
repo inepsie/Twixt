@@ -50,7 +50,7 @@ static inline void init() {
   ShaderManager &shader_manager = ShaderManager::getInstance();
   Board &board = Board::getInstance();
   Mouse &mouse = Mouse::getInstance();
-  board.init(C::BOARD_SIZE);
+  board.init();
   // Points Draw Shader
   shader_manager.loadShader("pointsDraw", "../res/shaders/points.vert",
                             "../res/shaders/points.frag",

@@ -1,4 +1,5 @@
 #include "Board.h"
+#include "ChunkKey.h"
 #include "Constants.h"
 #include "Mouse.h"
 #include "Camera.h"
@@ -72,7 +73,26 @@ void Board::print_links(){
         std::cout <<  std::endl;
 }
 
-void Board::init(size_t size) {
+void Board::remove_play(size_t i, size_t j){
+  ChunkKey key(i, j);
+  m_plays.erase(key);
+}
+
+void Board::init_plays() {
+  size_t i, j;
+  for (size_t i = 0; i < C::BOARD_SIZE; ++i) {
+    for (size_t j = 0; j < C::BOARD_SIZE; ++j) {
+      ChunkKey key(i, j);
+      auto result = m_plays.emplace(std::make_pair(key, std::array<size_t, 2>{i, j}));
+      if (!result.second) {
+        std::cerr << "Chunk " << i << ", " << j << " already exists!"
+                  << std::endl;
+      }
+    }
+  }
+}
+
+void Board::init() {
     std::fill(m_board.begin(), m_board.end(), 1); // Remplit `m_board` avec 1
     m_board[0] = 0;// Coins
     m_board[C::BOARD_SIZE - 1] = 0;
@@ -91,6 +111,7 @@ void Board::init(size_t size) {
                         (const void *)0);
 
   init_lines();
+  init_plays();
 }
 
 
