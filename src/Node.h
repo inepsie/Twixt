@@ -21,15 +21,15 @@ class Node {
 public:
     Node();
     ~Node();
-  std::array<GLuint, C::BOARD_SIZE_2> apply_move();
+        void apply_move(std::array<GLuint, C::BOARD_SIZE_2>, size_t i, size_t j);
   size_t nb_played = 0;
   size_t nb_win = 0;
     int player = 0;
 
 private:
-  std::array<GLuint, C::BOARD_SIZE_2> pawns;
-  std::array<GLuint, C::BOARD_SIZE_2> links;
-  std::vector<size_t> child;
+  std::array<GLuint, C::BOARD_SIZE_2> m_pawns;
+  std::array<GLuint, C::BOARD_SIZE_2> m_links;
+  std::vector<size_t> m_child;
 };
 
 #endif

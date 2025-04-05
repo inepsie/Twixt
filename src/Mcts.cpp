@@ -7,7 +7,7 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
-Mcts::Mcts() {
+void Mcts::init(){
   Node racine;
   std::array<GLuint, C::BOARD_SIZE_2> pawns = {};
   std::array<GLuint, C::BOARD_SIZE_2> links = {};
@@ -15,9 +15,6 @@ Mcts::Mcts() {
                           // réallocations fréquentes
   add_node(pawns, links);
 }
-
-// Définition du destructeur
-Mcts::~Mcts() {}
 
 void Mcts::add_node(std::array<GLuint, C::BOARD_SIZE_2> arg_pawns, std::array<GLuint, C::BOARD_SIZE_2> arg_links) {
     Node new_node;
@@ -28,6 +25,8 @@ void Mcts::select() {}
 void Mcts::expand() {}
 void Mcts::best_move() {}
 
+/*
 std::array<GLuint, C::BOARD_SIZE_2> Mcts::apply_move(size_t i, size_t j){
-
+    return m_
 }
+*/

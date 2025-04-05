@@ -18,7 +18,9 @@
 
 namespace C = Constants;
 
+/*
 struct Node {
+
   std::array<GLuint, C::BOARD_SIZE_2> pawns;
   std::array<GLuint, C::BOARD_SIZE_2> links;
   std::vector<size_t> child;
@@ -27,19 +29,26 @@ struct Node {
   size_t nb_win = 0;
     int player = 0;
 };
+*/
 
 class Mcts {
 public:
-    Mcts();
-    ~Mcts();
-  //void add_node();
+  static Mcts &
+  getInstance() { //  Pour avoir une instance unique et statique à la class
+    static Mcts instance;
+    return instance;
+  }
+  void init();
 void add_node(std::array<GLuint, C::BOARD_SIZE_2> arg_pawns, std::array<GLuint, C::BOARD_SIZE_2> arg_links);
   void select();
   void expand();
   void best_move();
-  std::array<GLuint, C::BOARD_SIZE_2> apply_move();
+//std::array<GLuint, C::BOARD_SIZE_2> apply_move(size_t i, size_t j);
 
 private:
+  // Empêche la copie
+  Mcts() = default;
+  ~Mcts() = default; // Plus besoin de destructeur manuel
   std::vector<Node> m_tree;
 };
 

@@ -117,6 +117,10 @@ static inline void auto_random_play(){
     else std::cout << "Victoire joueur " << board.ended - 1 << std::endl;
 }
 
+static inline void init_mcts(){
+
+}
+
 int main() {
   Camera cam = Camera(glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
   // GLFW

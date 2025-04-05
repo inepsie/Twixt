@@ -1,5 +1,6 @@
 #include "Node.h"
 #include "Constants.h"
+#include "Utils.h"
 
 #define GLEW_STATIC
 #include "GL/glew.h"
@@ -10,16 +11,15 @@
 Node::Node() {
   std::array<GLuint, C::BOARD_SIZE_2> pawns = {};
   std::array<GLuint, C::BOARD_SIZE_2> links = {};
-  m_tree.reserve(100000); // Réserve 10 000 emplacements pour éviter les
+  //m_tree.reserve(100000); // Réserve 10 000 emplacements pour éviter les
                           // réallocations fréquentes
-  add_node(pawns, links);
+  //add_node(pawns, links);
 }
 
 // Définition du destructeur
 Node::~Node() {}
 
-std::array<GLuint, C::BOARD_SIZE_2> Mcts::apply_move(size_t i, size_t j){
-
+void Node::apply_move(std::array<GLuint, C::BOARD_SIZE_2>, size_t i, size_t j){
 }
 
 void Board::play(size_t i, size_t j) {

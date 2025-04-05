@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "Shader.h"
 #include "ShaderManager.h"
+#include "Utils.h"
 #include <array>
 #include <cstddef>
 #include <cstdlib>
@@ -369,7 +370,8 @@ void Board::print_win_pawn(){
 }
 
 void Board::play(size_t i, size_t j) {
-  size_t ind = id_2dto1d(i, j);
+  //size_t ind = id_2dto1d(i, j);
+  size_t ind = utils::id_2dto1d(i, j, m_size);
   size_t screen_ind = id_2dto1d(C::BOARD_SIZE - 1 - i, C::BOARD_SIZE - 1 - j);
   size_t offset = screen_ind * sizeof(GLuint);
   size_t size = m_size_2 * sizeof(GLuint);
@@ -471,7 +473,7 @@ void Board::check_links(size_t i, size_t j){
         coords = id_2dto1d(i, j);
         coords_other = link_ind(n, i, j); // coordonnées à tester
         coords_1D = id_2dto1d(coords_other[0], coords_other[1]); // conversion 1D
-        if(m_board[coords_1D] != (m_player + 2)) continue; // test de pions pour link
+        if(m_board[coords_1D] != (m_player + 2)) continue; // test de pions pour linK
         if(m_links[coords][n] == 9) continue; // lien bloqué par un autre lien
         if(unbound(coords_other[0], coords_other[1])) continue; // test si coordonnées valides
         add_link(n, i, j, coords_other[0], coords_other[1]);
@@ -501,6 +503,7 @@ bool Board::unbound(size_t x, size_t y) {
 
 size_t Board::link_ind_1D(size_t type, size_t ind) {
     std::array<size_t, 2> xy = id_1dto2d(ind);
+    //std::array<size_t, 2> xy = utils::id_1dto2d(idn
     std::array<size_t, 2> nxy = link_ind(type, xy[0], xy[1]);
     return id_2dto1d(nxy[0], nxy[1]);
 }
