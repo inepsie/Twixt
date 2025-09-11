@@ -10,5 +10,3 @@
 
 **RAPPEL** : Si tu modifies un fichier dans `~/.claude/`, tu DOIS finir par git add/commit/push dans la même réponse.
 
-## Test Auto-push
-Test effectué le 2025-09-12 pour vérifier le fonctionnement du workflow automatique.
